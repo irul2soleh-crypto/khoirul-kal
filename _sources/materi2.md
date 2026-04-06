@@ -1,4 +1,4 @@
-# MATRIKS
+# Materi 2
 Pengertian Matriks
 
 Matriks adalah susunan bilangan yang disusun dalam bentuk baris (row) dan kolom (column).

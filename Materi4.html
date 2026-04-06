@@ -1,0 +1,1290 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>𝐴 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Materi4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Materi 2" href="materi2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/abc.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/abc.jpeg" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    KHOIRUL SHOLEH 250411100166
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Materi1.html">Materi 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">𝐴</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMateri4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Materi4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>𝐴</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-matriks-matriks-persegi-n-n-nn-matriks-nol-semua-elemen-0-matriks-identitas">Jenis-Jenis Matriks
+Matriks Persegi
+𝑛
+×
+𝑛
+n×n
+Matriks Nol
+Semua elemen = 0
+Matriks Identitas
+𝐼</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">𝐴
++
+𝐵</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurangan-matriks">]
+📌 2. Pengurangan Matriks
+𝐴
+−
+𝐵</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-i-j">𝑐
+𝑖
+𝑗</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">𝐶
+)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4
+]
+𝑇</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#print-a-t-matriks-simetris">print(A.T)
+📌 Matriks Simetris
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-t-matriks-ortogonal">𝐴
+𝑇
+A=A
+T
+📌 Matriks Ortogonal
+𝐴
+𝑇
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-syarat-invers-matriks-persegi-determinan-0-rumus-invers-2x2-1">𝐴
+−
+1
+A
+−1
+📌 Syarat Invers
+Matriks persegi
+Determinan ≠ 0
+📌 Rumus Invers 2x2
+𝐴
+−
+1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-1">𝑎
+]
+A
+−1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">]
+📌 Contoh
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-tidak-nol-memiliki-invers-rank-penuh-tidak-ada-baris-nol-sistem-ax-b-punya-solusi-unik-identitas-penting-1">Determinan tidak nol
+Memiliki invers
+Rank penuh
+Tidak ada baris nol
+Sistem AX = B punya solusi unik
+📌 Identitas Penting
+𝐴
+−
+1
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-a-i-makna-matriks-dapat-dibalik-solusi-sistem-linear-bisa-ditemukan-dengan">𝐼
+A
+−1
+A=I
+📌 Makna
+Matriks dapat “dibalik”
+Solusi sistem linear bisa ditemukan dengan:
+𝑋</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d">𝑑
+∣</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-np-array-1-2-3-4-print-np-linalg-det-a-contoh-kasus-aplikasi-sistem-persamaan-2-x-y">A = np.array([[1,2],[3,4]])
+print(np.linalg.det(A))
+📘 Contoh Kasus (Aplikasi)
+📌 Sistem Persamaan
+2
+𝑥
++
+𝑦</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y">5
+𝑥
+−
+𝑦</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">𝐴
+𝑋</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>#Pengertian Matriks</p>
+<p>Matriks adalah susunan bilangan yang disusun dalam bentuk baris (row) dan kolom (column).</p>
+<p>Bentuk umum:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>𝐴<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>[
+𝑎
+𝑖
+𝑗
+]
+A=[a
+ij
+​</p>
+<p>]</p>
+<p>Contoh:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>𝐴<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<p>[
+1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6
+]
+A=[
+1
+4
+​</p>
+<p>2
+5
+​</p>
+<p>3
+6
+​</p>
+<p>]
+Ordo matriks:
+𝑚
+×
+𝑛
+m×n
+m = jumlah baris
+n = jumlah kolom</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="jenis-jenis-matriks-matriks-persegi-n-n-nn-matriks-nol-semua-elemen-0-matriks-identitas">
+<h1>Jenis-Jenis Matriks
+Matriks Persegi
+𝑛
+×
+𝑛
+n×n
+Matriks Nol
+Semua elemen = 0
+Matriks Identitas
+𝐼<a class="headerlink" href="#jenis-jenis-matriks-matriks-persegi-n-n-nn-matriks-nol-semua-elemen-0-matriks-identitas" title="Link to this heading">#</a></h1>
+<p>[
+1</p>
+<p>0</p>
+<p>0</p>
+<p>1
+]
+I=[
+1
+0
+​</p>
+<p>0
+1
+​</p>
+<p>]
+Matriks Diagonal
+Elemen selain diagonal utama = 0
+Matriks Segitiga
+Segitiga atas
+Segitiga bawah
+📘 2.1 Aritmetika Matriks
+📌 1. Penjumlahan Matriks</p>
+<p>Syarat: ukuran sama</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>𝐴
++
+𝐵<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<p>[
+𝑎
+𝑖
+𝑗
++
+𝑏
+𝑖
+𝑗
+]
+A+B=[a
+ij
+​</p>
+<p>+b
+ij
+​</p>
+<p>]</p>
+<p>Contoh:</p>
+<p>[
+1</p>
+<p>2</p>
+<p>3</p>
+<p>4
+]
++
+[
+5</p>
+<p>6</p>
+<p>7</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>8
+]<a class="headerlink" href="#id4" title="Link to this heading">#</a></h1>
+<p>[
+6</p>
+<p>8</p>
+<p>10</p>
+<p>12
+]
+[
+1
+3
+​</p>
+<p>2
+4
+​</p>
+<p>]+[
+5
+7
+​</p>
+<p>6
+8
+​</p>
+<p>]=[
+6
+10
+​</p>
+<p>8
+12
+​</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pengurangan-matriks">
+<h1>]
+📌 2. Pengurangan Matriks
+𝐴
+−
+𝐵<a class="headerlink" href="#pengurangan-matriks" title="Link to this heading">#</a></h1>
+<p>[
+𝑎
+𝑖
+𝑗
+−
+𝑏
+𝑖
+𝑗
+]
+A−B=[a
+ij
+​</p>
+<p>−b
+ij
+​</p>
+<p>]
+📌 3. Perkalian Skalar
+𝑘
+𝐴
+kA</p>
+<p>Contoh:</p>
+<p>2
+[
+1</p>
+<p>2</p>
+<p>3</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>4
+]<a class="headerlink" href="#id5" title="Link to this heading">#</a></h1>
+<p>[
+2</p>
+<p>4</p>
+<p>6</p>
+<p>8
+]
+2[
+1
+3
+​</p>
+<p>2
+4
+​</p>
+<p>]=[
+2
+6
+​</p>
+<p>4
+8
+​</p>
+<p>]
+📌 4. Perkalian Matriks</p>
+<p>Syarat:</p>
+<p>(
+𝑚
+×
+𝑛
+)
+⋅
+(
+𝑛
+×
+𝑝
+)
+(m×n)⋅(n×p)</p>
+<p>Rumus:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-i-j">
+<h1>𝑐
+𝑖
+𝑗<a class="headerlink" href="#c-i-j" title="Link to this heading">#</a></h1>
+<p>∑
+𝑎
+𝑖
+𝑘
+𝑏
+𝑘
+𝑗
+c
+ij
+​</p>
+<p>=∑a
+ik
+​</p>
+<p>b
+kj
+​</p>
+<p>Contoh:</p>
+<p>[
+1</p>
+<p>2</p>
+<p>3</p>
+<p>4
+]
+⋅
+[
+5</p>
+<p>6</p>
+<p>7</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
+<h1>8
+]<a class="headerlink" href="#id6" title="Link to this heading">#</a></h1>
+<p>[
+19</p>
+<p>22</p>
+<p>43</p>
+<p>50
+]
+[
+1
+3
+​</p>
+<p>2
+4
+​</p>
+<p>]⋅[
+5
+7
+​</p>
+<p>6
+8
+​</p>
+<p>]=[
+19
+43
+​</p>
+<p>22
+50
+​</p>
+<p>]
+📌 Implementasi Python
+import numpy as np</p>
+<p>A = np.array([[1,2],[3,4]])
+B = np.array([[5,6],[7,8]])</p>
+<p>print(“Penjumlahan:\n”, A + B)
+print(“Perkalian:\n”, A &#64; B)
+📘 2.2 Aljabar Matriks
+📌 Sifat-Sifat Matriks</p>
+<ol class="arabic simple">
+<li><p>Asosiatif
+(
+𝐴
+𝐵
+)
+𝐶
+=
+𝐴
+(
+𝐵
+𝐶
+)
+(AB)C=A(BC)</p></li>
+<li><p>Distributif
+𝐴
+(
+𝐵</p></li>
+</ol>
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id7">
+<h1>𝐶
+)<a class="headerlink" href="#id7" title="Link to this heading">#</a></h1>
+<p>𝐴
+𝐵
++
+𝐴
+𝐶
+A(B+C)=AB+AC
+3. Tidak Komutatif
+𝐴
+𝐵
+≠
+𝐵
+𝐴
+AB
+
+=BA
+📌 Transpose Matriks
+𝐴
+𝑇
+A
+T</p>
+<p>Contoh:</p>
+<p>[
+1</p>
+<p>2</p>
+<p>3</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id8">
+<h1>4
+]
+𝑇<a class="headerlink" href="#id8" title="Link to this heading">#</a></h1>
+<p>[
+1</p>
+<p>3</p>
+<p>2</p>
+<p>4
+]
+[
+1
+3
+​</p>
+<p>2
+4
+​</p>
+<p>]
+T
+=[
+1
+2
+​</p>
+<p>3
+4
+​</p>
+<p>]</p>
+<p>Python:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="print-a-t-matriks-simetris">
+<h1>print(A.T)
+📌 Matriks Simetris
+𝐴<a class="headerlink" href="#print-a-t-matriks-simetris" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-a-t-matriks-ortogonal">
+<h1>𝐴
+𝑇
+A=A
+T
+📌 Matriks Ortogonal
+𝐴
+𝑇
+𝐴<a class="headerlink" href="#a-a-t-matriks-ortogonal" title="Link to this heading">#</a></h1>
+<p>𝐼
+A
+T
+A=I
+📘 2.3 Matriks Invertibel
+📌 Pengertian</p>
+<p>Matriks invertibel adalah matriks yang memiliki invers.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-1-syarat-invers-matriks-persegi-determinan-0-rumus-invers-2x2-1">
+<h1>𝐴
+−
+1
+A
+−1
+📌 Syarat Invers
+Matriks persegi
+Determinan ≠ 0
+📌 Rumus Invers 2x2
+𝐴
+−
+1<a class="headerlink" href="#a-1-syarat-invers-matriks-persegi-determinan-0-rumus-invers-2x2-1" title="Link to this heading">#</a></h1>
+<p>1
+𝑎
+𝑑
+−
+𝑏
+𝑐
+[
+𝑑</p>
+<p>−
+𝑏</p>
+<p>−
+𝑐</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-a-1">
+<h1>𝑎
+]
+A
+−1<a class="headerlink" href="#a-a-1" title="Link to this heading">#</a></h1>
+<p>ad−bc
+1
+​</p>
+<p>[
+d
+−c
+​</p>
+<p>−b
+a
+​</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contoh">
+<h1>]
+📌 Contoh
+𝐴<a class="headerlink" href="#contoh" title="Link to this heading">#</a></h1>
+<p>[
+1</p>
+<p>2</p>
+<p>3</p>
+<p>4
+]
+A=[
+1
+3
+​</p>
+<p>2
+4
+​</p>
+<p>]
+📌 Implementasi Python
+import numpy as np</p>
+<p>A = np.array([[1,2],[3,4]])
+print(np.linalg.inv(A))
+📘 2.4 Teorema Invertibilitas
+📌 Pernyataan</p>
+<p>Matriks A invertibel jika dan hanya jika:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="determinan-tidak-nol-memiliki-invers-rank-penuh-tidak-ada-baris-nol-sistem-ax-b-punya-solusi-unik-identitas-penting-1">
+<h1>Determinan tidak nol
+Memiliki invers
+Rank penuh
+Tidak ada baris nol
+Sistem AX = B punya solusi unik
+📌 Identitas Penting
+𝐴
+−
+1
+𝐴<a class="headerlink" href="#determinan-tidak-nol-memiliki-invers-rank-penuh-tidak-ada-baris-nol-sistem-ax-b-punya-solusi-unik-identitas-penting-1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-1-a-i-makna-matriks-dapat-dibalik-solusi-sistem-linear-bisa-ditemukan-dengan">
+<h1>𝐼
+A
+−1
+A=I
+📌 Makna
+Matriks dapat “dibalik”
+Solusi sistem linear bisa ditemukan dengan:
+𝑋<a class="headerlink" href="#a-1-a-i-makna-matriks-dapat-dibalik-solusi-sistem-linear-bisa-ditemukan-dengan" title="Link to this heading">#</a></h1>
+<p>𝐴
+−
+1
+𝐵
+X=A
+−1
+B
+📘 2.5 Determinan
+📌 Pengertian</p>
+<p>Determinan adalah nilai skalar dari matriks yang menunjukkan sifat matriks.</p>
+<p>📌 Determinan 2x2
+∣
+𝑎</p>
+<p>𝑏</p>
+<p>𝑐</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="d">
+<h1>𝑑
+∣<a class="headerlink" href="#d" title="Link to this heading">#</a></h1>
+<p>𝑎
+𝑑
+−
+𝑏
+𝑐
+​</p>
+<p>a
+c
+​</p>
+<p>b
+d
+​</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>​
+</pre></div>
+</div>
+<p>=ad−bc
+📌 Determinan 3x3 (Sarrus)
+∣
+𝑎</p>
+<p>𝑏</p>
+<p>𝑐</p>
+<p>𝑑</p>
+<p>𝑒</p>
+<p>𝑓</p>
+<p>𝑔</p>
+<p>ℎ</p>
+<p>𝑖
+∣
+​</p>
+<p>a
+d
+g
+​</p>
+<p>b
+e
+h
+​</p>
+<p>c
+f
+i
+​</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>​
+</pre></div>
+</div>
+<p>📌 Sifat Determinan
+det(A) = 0 → tidak invertibel
+det(AB) = det(A) det(B)
+det(Aᵀ) = det(A)
+📌 Implementasi Python
+import numpy as np</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-np-array-1-2-3-4-print-np-linalg-det-a-contoh-kasus-aplikasi-sistem-persamaan-2-x-y">
+<h1>A = np.array([[1,2],[3,4]])
+print(np.linalg.det(A))
+📘 Contoh Kasus (Aplikasi)
+📌 Sistem Persamaan
+2
+𝑥
++
+𝑦<a class="headerlink" href="#a-np-array-1-2-3-4-print-np-linalg-det-a-contoh-kasus-aplikasi-sistem-persamaan-2-x-y" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="x-y">
+<h1>5
+𝑥
+−
+𝑦<a class="headerlink" href="#x-y" title="Link to this heading">#</a></h1>
+<p>1
+2x+y=5x−y=1</p>
+<p>Bentuk matriks:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id9">
+<h1>𝐴
+𝑋<a class="headerlink" href="#id9" title="Link to this heading">#</a></h1>
+<p>𝐵
+AX=B</p>
+<p>Solusi Python:</p>
+<p>A = np.array([[2,1],[1,-1]])
+B = np.array([5,1])</p>
+<p>X = np.linalg.solve(A,B)
+print(X)</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="materi2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Materi 2</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-matriks-matriks-persegi-n-n-nn-matriks-nol-semua-elemen-0-matriks-identitas">Jenis-Jenis Matriks
+Matriks Persegi
+𝑛
+×
+𝑛
+n×n
+Matriks Nol
+Semua elemen = 0
+Matriks Identitas
+𝐼</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">𝐴
++
+𝐵</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurangan-matriks">]
+📌 2. Pengurangan Matriks
+𝐴
+−
+𝐵</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-i-j">𝑐
+𝑖
+𝑗</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8
+]</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">𝐶
+)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4
+]
+𝑇</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#print-a-t-matriks-simetris">print(A.T)
+📌 Matriks Simetris
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-t-matriks-ortogonal">𝐴
+𝑇
+A=A
+T
+📌 Matriks Ortogonal
+𝐴
+𝑇
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-syarat-invers-matriks-persegi-determinan-0-rumus-invers-2x2-1">𝐴
+−
+1
+A
+−1
+📌 Syarat Invers
+Matriks persegi
+Determinan ≠ 0
+📌 Rumus Invers 2x2
+𝐴
+−
+1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-1">𝑎
+]
+A
+−1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">]
+📌 Contoh
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-tidak-nol-memiliki-invers-rank-penuh-tidak-ada-baris-nol-sistem-ax-b-punya-solusi-unik-identitas-penting-1">Determinan tidak nol
+Memiliki invers
+Rank penuh
+Tidak ada baris nol
+Sistem AX = B punya solusi unik
+📌 Identitas Penting
+𝐴
+−
+1
+𝐴</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-a-i-makna-matriks-dapat-dibalik-solusi-sistem-linear-bisa-ditemukan-dengan">𝐼
+A
+−1
+A=I
+📌 Makna
+Matriks dapat “dibalik”
+Solusi sistem linear bisa ditemukan dengan:
+𝑋</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d">𝑑
+∣</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-np-array-1-2-3-4-print-np-linalg-det-a-contoh-kasus-aplikasi-sistem-persamaan-2-x-y">A = np.array([[1,2],[3,4]])
+print(np.linalg.det(A))
+📘 Contoh Kasus (Aplikasi)
+📌 Sistem Persamaan
+2
+𝑥
++
+𝑦</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y">5
+𝑥
+−
+𝑦</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">𝐴
+𝑋</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
