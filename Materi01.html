@@ -60,10 +60,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Materi01';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="materi2.html" />
+    <link rel="next" title="Tugas" href="tugas.html" />
     <link rel="prev" title="KHOIRUL SHOLEH 250411100166" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,12 +178,11 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="materiterbaru.html">Materi 1</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="tugas.html">Tugas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TugasKAL.html">tugas kal</a></li>
 
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="tranformasi.html">Tranformasi</a></li>
 
 </ul>
 
@@ -382,6 +383,19 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris-tereduksi-rref">Bentuk Eselon Baris Tereduksi (RREF)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-spl-menggunakan-eliminasi-gaussian">Penyelesaian Sistem Persamaan Linier (SPL) menggunakan Eliminasi Gaussian</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sistem-persamaan-linear-tiga-variabel">A. Sistem Persamaan Linear Tiga Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubah-ke-matriks-augmented">1. Ubah ke Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian-operasi-baris-elementer">2. Eliminasi Gaussian (Operasi Baris Elementer)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-sistem-persamaan-linear-empat-variabel">B. Sistem Persamaan Linear Empat Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Ubah ke Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Eliminasi Gaussian (Operasi Baris Elementer)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -409,23 +423,13 @@ Supaya solusi lebih mudah ditemukan</p>
 <p>Matriks adalah susunan bilangan berbentuk persegi panjang yang terdiri dari baris dan kolom. Matriks sering digunakan untuk merepresentasikan sistem persamaan linear dalam bentuk yang lebih ringkas. Matriks augmentasi adalah matriks yang diperoleh dengan menggabungkan matriks koefisien dan hasil dari sistem persamaan. Dengan menggunakan matriks augmentasi, proses penyelesaian SPL menjadi lebih efisien karena dapat dilakukan melalui operasi baris.</p>
 <p>Matriks adalah susunan angka berbentuk tabel (baris &amp; kolom).
 Contoh:</p>
-<p>|1 | 3|
-|2 | 4|</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>​
-</pre></div>
-</div>
+<p>​</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="matriks-augmentasi">
 <h1>Matriks Augmentasi<a class="headerlink" href="#matriks-augmentasi" title="Link to this heading">#</a></h1>
 <p>Matriks yang menggabungkan:</p>
 <p>Koefisien variabel
 Hasil persamaan</p>
-<p>Contoh:</p>
-<p>{x+y=3
-{2x+y=5​</p>
-<p>Menjadi:</p>
-<p>|1| 1 | 3|
-|2| 1 | 5|</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="bentuk-eselon-baris">
 <h1>Bentuk Eselon Baris<a class="headerlink" href="#bentuk-eselon-baris" title="Link to this heading">#</a></h1>
@@ -434,28 +438,338 @@ Hasil persamaan</p>
 <p>Baris nol ada di bawah
 Angka pertama (pivot) = 1
 Pivot ke bawah semakin ke kanan (bentuk tangga)</p>
-<p>Contoh:</p>
-<p>| 1| 2 |3 |
-| 0| 1 | 4|
-| 0|0  | 1|</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="bentuk-eselon-baris-tereduksi-rref">
 <h1>Bentuk Eselon Baris Tereduksi (RREF)<a class="headerlink" href="#bentuk-eselon-baris-tereduksi-rref" title="Link to this heading">#</a></h1>
 <p>Bentuk eselon baris tereduksi merupakan bentuk lanjutan dari eselon baris. Pada bentuk ini, setiap pivot bernilai 1 dan menjadi satu-satunya elemen yang tidak nol pada kolomnya. Artinya, semua elemen di atas dan di bawah pivot harus bernilai nol. Bentuk ini adalah bentuk paling sederhana dari suatu matriks dan memudahkan dalam membaca solusi secara langsung.</p>
-<p>Setiap kolom pivot hanya punya satu angka ≠ 0 (yang lain harus 0)
-Contoh:</p>
-<p>| 1| 0 |0 |
-| 0| 1 | 0|
-| 0|0  | 1|</p>
+<p>Setiap kolom pivot hanya punya satu angka ≠ 0 (yang lain harus 0)</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="operasi-baris-elementer">
 <h1>Operasi Baris Elementer<a class="headerlink" href="#operasi-baris-elementer" title="Link to this heading">#</a></h1>
 <p>Dalam eliminasi Gaussian, terdapat tiga jenis operasi baris elementer yang digunakan. Pertama adalah perkalian skalar, yaitu mengalikan suatu baris dengan bilangan tidak nol. Kedua adalah pertukaran baris, yaitu menukar posisi dua baris dalam matriks. Ketiga adalah penjumlahan baris, yaitu menambahkan kelipatan suatu baris ke baris lainnya. Ketiga operasi ini tidak mengubah solusi dari sistem persamaan.</p>
-<p>R1​→2R1​
-| 1 |3 |
-​| 2 | 4​|</p>
-<p>|2 |3 |
-|4 |4 |</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-sistem-persamaan-linier-spl-menggunakan-eliminasi-gaussian">
+<h1>Penyelesaian Sistem Persamaan Linier (SPL) menggunakan Eliminasi Gaussian<a class="headerlink" href="#penyelesaian-sistem-persamaan-linier-spl-menggunakan-eliminasi-gaussian" title="Link to this heading">#</a></h1>
+<section id="a-sistem-persamaan-linear-tiga-variabel">
+<h2>A. Sistem Persamaan Linear Tiga Variabel<a class="headerlink" href="#a-sistem-persamaan-linear-tiga-variabel" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\begin{cases}
+x + y + z = 6 \\
+2x + 3y + z = 10 \\
+x + 2y + 3z = 13
+\end{cases}\)</span></p>
+<p><strong>Penyelesaian:</strong></p>
+<section id="ubah-ke-matriks-augmented">
+<h3>1. Ubah ke Matriks Augmented<a class="headerlink" href="#ubah-ke-matriks-augmented" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">]])</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{ccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 6 \\
+ 2 &amp; 3 &amp; 1 &amp; 10 \\
+ 1 &amp; 2 &amp; 3 &amp; 13
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</section>
+<section id="eliminasi-gaussian-operasi-baris-elementer">
+<h3>2. Eliminasi Gaussian (Operasi Baris Elementer)<a class="headerlink" href="#eliminasi-gaussian-operasi-baris-elementer" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Hilangkan elemen di bawah pivot pertama</p>
+<p>Baris 2 → R2 − 2R1
+Baris 3 → R3 − R1</p>
+<p><em>Artinya:</em> Menghilangkan angka pertama agar jadi 0 dengan menggunakan <strong>A.add_multiple_of_row</strong> untuk melakukan perkalian kemudian penjumlahan.</p>
+<ul>
+<li><p>A.add_multiple_of_row(1, 0, -2) <em>Artinya:</em> Tambahkan -2* (baris 0) ke baris 1</p></li>
+<li><p>A.add_multiple_of_row(2, 0, -1) <em>Artinya:</em> Tambahkan -1* (baris 0) ke baris 2</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{ccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 6 \\
+ 0 &amp; 1 &amp; -1 &amp; -2 \\
+ 0 &amp; 1 &amp; 2 &amp; 7
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Hilangkan elemen di bawah pivot kedua</p>
+<p>Baris 3 → R3 − R2</p>
+<p><em>Artinya:</em> Menghilangkan angka pertama agar jadi 0 dengan menggunakan <strong>A.add_multiple_of_row</strong> untuk melakukan perkalian kemudian penjumlahan.</p>
+<ul>
+<li><p>A.add_multiple_of_row(2, 1, -1) <em>Artinya:</em> Tambahkan -1* (baris 1) ke baris 2</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{ccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 6 \\
+ 0 &amp; 1 &amp; -1 &amp; -2 \\
+ 0 &amp; 0 &amp; 3 &amp; 9
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Substitusi Balik</p>
+<ol class="arabic">
+<li><p>Dari baris ketiga:</p>
+<p><span class="math notranslate nohighlight">\(3z = 9 \Rightarrow z = 3\)</span></p>
+</li>
+<li><p>Baris kedua:</p>
+<p><span class="math notranslate nohighlight">\(y - z = -2
+ y - 3 = -2 \Rightarrow y = 1\)</span></p>
+</li>
+<li><p>Baris Pertama</p>
+<p><span class="math notranslate nohighlight">\(x + y + z = 6
+ x + 1 + 3 = 6 \Rightarrow x = 2\)</span></p>
+<p><strong>ATAU:</strong></p>
+</li>
+</ol>
+</li>
+<li><p>Jadikan pivot ketiga = 1
+Baris 3 → R3 ÷ 3</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</li>
+<li><p>Output</p>
+<p><span class="math notranslate nohighlight">\(\left[
+     \begin{array}{ccc|c}
+     1 &amp; 1 &amp; 1 &amp; 6 \\
+     0 &amp; 1 &amp; -1 &amp; -2 \\
+     0 &amp; 0 &amp; 1 &amp; 3
+     \end{array}
+     \right]\)</span></p>
+</li>
+<li><p>Substitusi Balik (Manual)</p>
+<p><span class="math notranslate nohighlight">\(z = 3
+ y - z = -2 \Rightarrow y = 1
+ x + y + z = 6 \Rightarrow x = 2\)</span></p>
+</li>
+</ol>
+</li>
+<li><p>Solusi (Hasil)</p>
+<p><span class="math notranslate nohighlight">\((x, y, z) = (2, 1, 3)\)</span></p>
+</li>
+</ol>
+</section>
+</section>
+<section id="b-sistem-persamaan-linear-empat-variabel">
+<h2>B. Sistem Persamaan Linear Empat Variabel<a class="headerlink" href="#b-sistem-persamaan-linear-empat-variabel" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\begin{cases}
+x + y + z + w = 10 \\
+2x + y + z + w = 13 \\
+x + 2y + z + w = 14 \\
+x + y + 2z + w = 15
+\end{cases}\)</span></p>
+<p><strong>Penyelesaian:</strong></p>
+<section id="id1">
+<h3>1. Ubah ke Matriks Augmented<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</li>
+<li><p>Output:
+<span class="math notranslate nohighlight">\(\begin{cases}
+ x + y + z + w = 10 \\
+ 2x + y + z + w = 13 \\
+ x + 2y + z + w = 14 \\
+ x + y + 2z + w = 15
+ \end{cases}\)</span></p></li>
+</ol>
+</section>
+<section id="id2">
+<h3>2. Eliminasi Gaussian (Operasi Baris Elementer)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Hilangkan elemen di bawah pivot pertama
+B2 → B2 − 2B1,
+B3 → B3 − B1,
+B4 → B4 − B1</p>
+<p><em>Artinya:</em> Menghilangkan angka pertama agar jadi 0 dengan menggunakan <strong>A.add_multiple_of_row</strong> untuk melakukan perkalian kemudian penjumlahan.</p>
+<ul>
+<li><p>A.add_multiple_of_row(1, 0, -2) <em>Artinya:</em> Tambahkan -2* (baris 0) ke baris 1</p></li>
+<li><p>A.add_multiple_of_row(2, 0, -1) <em>Artinya:</em> Tambahkan -1* (baris 0) ke baris 2</p></li>
+<li><p>A.add_multiple_of_row(3, 0, -1) <em>Artinya:</em> Tambahkan -1* (baris 0) ke baris 3</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{cccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+ 0 &amp; -1 &amp; -1 &amp; -1 &amp; -7 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 5
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Tukar B2 (baris 1) dan B3 (baris 2) (agar pivot positif)</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">swap_rows</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+</ol>
+<ul class="simple">
+<li><p>A.swap_rows(1, 2) <em>Artnya:</em> Tukar baris 1 dan 2</p></li>
+</ul>
+<ol class="arabic" start="2">
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{cccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+ 0 &amp; -1 &amp; -1 &amp; -1 &amp; -7 \\
+ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 5
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+<li><p>Hilangkan elemen di bawah pivot kedua
+B3 → B3 + B2</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{cccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+ 0 &amp; 0 &amp; -1 &amp; -1 &amp; -3 \\
+ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 5
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+<li><p>Hilangkan elemen di bawah pivot ketiga
+B4 → B4 + B3</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">add_multiple_of_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\left[
+ \begin{array}{cccc|c}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+ 0 &amp; 0 &amp; -1 &amp; -1 &amp; -3 \\
+ 0 &amp; 0 &amp; 0 &amp; -1 &amp; 2
+ \end{array}
+ \right]\)</span></p>
+</li>
+</ol>
+</li>
+<li><p>Substitusi Balik</p>
+<ol class="arabic">
+<li><p>Dari baris 4:</p>
+<p><span class="math notranslate nohighlight">\(−w = \Rightarrow 2 w = −2\)</span></p>
+</li>
+<li><p>Baris 3</p>
+<p><span class="math notranslate nohighlight">\(−z −w = −3
+ −z + 2 = −3
+ z = 5\)</span></p>
+</li>
+<li><p>Baris 2</p>
+<p><span class="math notranslate nohighlight">\(y = 4\)</span></p>
+</li>
+<li><p>Baris 1</p>
+<p><span class="math notranslate nohighlight">\(x + y + z + w = 10
+ x + 4 + 5 − 2 = 10
+ x = 3\)</span></p>
+<p><strong>ATAU</strong></p>
+</li>
+</ol>
+</li>
+<li><p>Jadikan pivot ketiga dan keempat = 1</p>
+<ol class="arabic">
+<li><p>Kode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">rescale_row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">A</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>Output:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 10 \\
+ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
+ 0 &amp; 0 &amp; -1 &amp; -1 &amp; -3 \\
+ 0 &amp; 0 &amp; 0 &amp; -1 &amp; 2
+ \end{bmatrix}\)</span></p>
+</li>
+<li><p>Substitusi Balik (Manual)</p>
+<p><span class="math notranslate nohighlight">\(w = −2
+ z = 5
+ y = 4
+ x = 3\)</span></p>
+</li>
+</ol>
+</li>
+<li><p>Solusi (Hasil)</p>
+<p><span class="math notranslate nohighlight">\((x,y,z,w) = (3,4,5,−2)\)</span></p>
+</li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -498,11 +812,11 @@ Contoh:</p>
       </div>
     </a>
     <a class="right-next"
-       href="materi2.html"
+       href="tugas.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Tugas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -531,6 +845,19 @@ Contoh:</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris-tereduksi-rref">Bentuk Eselon Baris Tereduksi (RREF)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-sistem-persamaan-linier-spl-menggunakan-eliminasi-gaussian">Penyelesaian Sistem Persamaan Linier (SPL) menggunakan Eliminasi Gaussian</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sistem-persamaan-linear-tiga-variabel">A. Sistem Persamaan Linear Tiga Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubah-ke-matriks-augmented">1. Ubah ke Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian-operasi-baris-elementer">2. Eliminasi Gaussian (Operasi Baris Elementer)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-sistem-persamaan-linear-empat-variabel">B. Sistem Persamaan Linear Empat Variabel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Ubah ke Matriks Augmented</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Eliminasi Gaussian (Operasi Baris Elementer)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
