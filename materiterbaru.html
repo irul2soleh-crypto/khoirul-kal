@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Materi 1 &#8212; My sample book</title>
+    <title>Invers Matriks &#8212; My sample book</title>
   
   
   
@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'materiterbaru';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -179,10 +181,9 @@
 
 <li class="toctree-l1"><a class="reference internal" href="Materi02.html">Tugas ELiminasi  (3)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Materi03.html">Evaluasi Determinan Dan Invers (6)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Materi04.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi04.html">Tugas Transformasi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Materi05.html">Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Invers Matriks</a></li>
 
 
 
@@ -190,7 +191,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="tugas.html">Tugas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tugasbaru.html">Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugasbaru.html">SVM</a></li>
 </ul>
 
     </div>
@@ -373,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Materi 1</h1>
+    <h1>Invers Matriks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,13 +384,34 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian">Eliminasi Gaussian</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks">Matriks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmentasi">Matriks Augmentasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris-tereduksi-rref">Bentuk Eselon Baris Tereduksi (RREF)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Invers Matriks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-invers-matriks">Pengertian Invers Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-invers-matriks">Sifat-Sifat Invers Matriks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-dari-invers">1. Invers dari invers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-hasil-perkalian-matriks">2. Invers hasil perkalian matriks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-identitas">3. Invers matriks identitas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-transpose">4. Invers transpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-invers">5. Determinan invers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-mencari-invers-matriks">Metode Mencari Invers Matriks</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-dan-penyelesaian-sistem-persamaan-linear">Invers Matriks dan Penyelesaian Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diketahui">Diketahui</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-rumus-invers">Langkah 1: Rumus Invers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-determinan">Langkah 2: Menghitung Determinan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-mencari-invers-matriks-a">Langkah 3: Mencari Invers Matriks A</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-solusi-sistem">Langkah 4: Menentukan Solusi Sistem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-1">Baris 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-2">Baris 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-3">Baris 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-4">Baris 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
 
             </nav>
@@ -402,75 +424,402 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="materi-1">
-<h1>Materi 1<a class="headerlink" href="#materi-1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="invers-matriks">
+<h1>Invers Matriks<a class="headerlink" href="#invers-matriks" title="Link to this heading">#</a></h1>
+<section id="pengertian-invers-matriks">
+<h2>Pengertian Invers Matriks<a class="headerlink" href="#pengertian-invers-matriks" title="Link to this heading">#</a></h2>
+<p>Invers matriks adalah kebalikan dari suatu matriks persegi yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+<p>Untuk suatu matriks persegi (A), inversnya dinotasikan dengan (A^{-1}) dan memenuhi:</p>
+<div class="math notranslate nohighlight">
+\[
+AA^{-1}=A^{-1}A=I
+\]</div>
+<p>dengan (I) adalah matriks identitas.</p>
+<p>Sebagai contoh, untuk matriks identitas orde (n):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+I=
+\begin{bmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; 1 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Tidak semua matriks memiliki invers. Sebuah matriks hanya memiliki invers apabila:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(A)\neq 0
+\]</div>
+<p>Jika</p>
+<div class="math notranslate nohighlight">
+\[
+\det(A)=0
+\]</div>
+<p>maka matriks tersebut disebut <strong>matriks singular</strong> dan tidak memiliki invers.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="eliminasi-gaussian">
-<h1>Eliminasi Gaussian<a class="headerlink" href="#eliminasi-gaussian" title="Link to this heading">#</a></h1>
-<p>Eliminasi Gaussian adalah metode untuk menyelesaikan sistem persamaan linear dengan cara mengubahnya menjadi bentuk yang lebih sederhana menggunakan operasi baris.
-Tujuannya:
-Mengubah sistem menjadi bentuk eselon baris
-Supaya solusi lebih mudah ditemukan</p>
+<hr class="docutils" />
+<section id="sifat-sifat-invers-matriks">
+<h2>Sifat-Sifat Invers Matriks<a class="headerlink" href="#sifat-sifat-invers-matriks" title="Link to this heading">#</a></h2>
+<p>Jika (A) dan (B) adalah matriks yang memiliki invers, maka berlaku:</p>
+<section id="invers-dari-invers">
+<h3>1. Invers dari invers<a class="headerlink" href="#invers-dari-invers" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+(A^{-1})^{-1}=A
+\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="matriks">
-<h1>Matriks<a class="headerlink" href="#matriks" title="Link to this heading">#</a></h1>
-<p>Matriks adalah susunan bilangan berbentuk persegi panjang yang terdiri dari baris dan kolom. Matriks sering digunakan untuk merepresentasikan sistem persamaan linear dalam bentuk yang lebih ringkas. Matriks augmentasi adalah matriks yang diperoleh dengan menggabungkan matriks koefisien dan hasil dari sistem persamaan. Dengan menggunakan matriks augmentasi, proses penyelesaian SPL menjadi lebih efisien karena dapat dilakukan melalui operasi baris.</p>
-<p>Matriks adalah susunan angka berbentuk tabel (baris &amp; kolom).
-Contoh:
-[
-1
-3
-​</p>
-<p>2
-4	​</p>
-<p>]</p>
+<section id="invers-hasil-perkalian-matriks">
+<h3>2. Invers hasil perkalian matriks<a class="headerlink" href="#invers-hasil-perkalian-matriks" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+(AB)^{-1}=B^{-1}A^{-1}
+\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="matriks-augmentasi">
-<h1>Matriks Augmentasi<a class="headerlink" href="#matriks-augmentasi" title="Link to this heading">#</a></h1>
-<p>Matriks yang menggabungkan:</p>
-<p>Koefisien variabel
-Hasil persamaan</p>
-<p>Contoh:</p>
-<p>{x+y=3
-{2x+y=5​</p>
-<p>Menjadi:</p>
-<p>[1 1 | 3
-2 1 | 5]</p>
+<section id="invers-matriks-identitas">
+<h3>3. Invers matriks identitas<a class="headerlink" href="#invers-matriks-identitas" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+I^{-1}=I
+\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bentuk-eselon-baris">
-<h1>Bentuk Eselon Baris<a class="headerlink" href="#bentuk-eselon-baris" title="Link to this heading">#</a></h1>
-<p>Bentuk eselon baris adalah bentuk matriks yang telah disederhanakan dengan aturan tertentu. Dalam bentuk ini, semua baris nol berada di bagian bawah, setiap baris memiliki elemen pertama yang bukan nol (disebut pivot), dan posisi pivot pada setiap baris berada lebih ke kanan dibandingkan baris di atasnya. Bentuk ini menyerupai pola tangga, sehingga sering disebut sebagai bentuk tangga.</p>
-<p>Matriks dikatakan bentuk eselon baris jika:</p>
-<p>Baris nol ada di bawah
-Angka pertama (pivot) = 1
-Pivot ke bawah semakin ke kanan (bentuk tangga)</p>
-<p>Contoh:</p>
-<p>[1 2 3
-0 1 4
-0 0 1 ]</p>
+<section id="invers-transpose">
+<h3>4. Invers transpose<a class="headerlink" href="#invers-transpose" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+(A^T)^{-1}=(A^{-1})^T
+\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bentuk-eselon-baris-tereduksi-rref">
-<h1>Bentuk Eselon Baris Tereduksi (RREF)<a class="headerlink" href="#bentuk-eselon-baris-tereduksi-rref" title="Link to this heading">#</a></h1>
-<p>Bentuk eselon baris tereduksi merupakan bentuk lanjutan dari eselon baris. Pada bentuk ini, setiap pivot bernilai 1 dan menjadi satu-satunya elemen yang tidak nol pada kolomnya. Artinya, semua elemen di atas dan di bawah pivot harus bernilai nol. Bentuk ini adalah bentuk paling sederhana dari suatu matriks dan memudahkan dalam membaca solusi secara langsung.</p>
-<p>Setiap kolom pivot hanya punya satu angka ≠ 0 (yang lain harus 0)
-Contoh:</p>
-<p>[100
-010
-001]</p>
+<section id="determinan-invers">
+<h3>5. Determinan invers<a class="headerlink" href="#determinan-invers" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\det(A^{-1})=\frac{1}{\det(A)}
+\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="operasi-baris-elementer">
-<h1>Operasi Baris Elementer<a class="headerlink" href="#operasi-baris-elementer" title="Link to this heading">#</a></h1>
-<p>Dalam eliminasi Gaussian, terdapat tiga jenis operasi baris elementer yang digunakan. Pertama adalah perkalian skalar, yaitu mengalikan suatu baris dengan bilangan tidak nol. Kedua adalah pertukaran baris, yaitu menukar posisi dua baris dalam matriks. Ketiga adalah penjumlahan baris, yaitu menambahkan kelipatan suatu baris ke baris lainnya. Ketiga operasi ini tidak mengubah solusi dari sistem persamaan.</p>
-<p>R1​→2R1​
-[13​24​]</p>
-<p>[
-2
-3
-​</p>
-<p>4
-4
-​</p>
-<p>]</p>
+</section>
+<hr class="docutils" />
+<section id="metode-mencari-invers-matriks">
+<h2>Metode Mencari Invers Matriks<a class="headerlink" href="#metode-mencari-invers-matriks" title="Link to this heading">#</a></h2>
+<p>Terdapat beberapa metode untuk mencari invers matriks, antara lain:</p>
+<ol class="arabic simple">
+<li><p>Metode Adjoin (Adjugate)</p></li>
+<li><p>Metode Eliminasi Gauss-Jordan</p></li>
+<li><p>Dekomposisi LU</p></li>
+</ol>
+<p>Pada materi ini digunakan konsep invers matriks untuk menyelesaikan sistem persamaan linear.</p>
+<p>Rumus umum invers matriks adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A)
+\]</div>
+<p>dengan:</p>
+<ul class="simple">
+<li><p>(\det(A)) = determinan matriks (A)</p></li>
+<li><p>(\operatorname{adj}(A)) = matriks adjoin dari (A)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="invers-matriks-dan-penyelesaian-sistem-persamaan-linear">
+<h1>Invers Matriks dan Penyelesaian Sistem Persamaan Linear<a class="headerlink" href="#invers-matriks-dan-penyelesaian-sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<section id="diketahui">
+<h2>Diketahui<a class="headerlink" href="#diketahui" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A=
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1\\
+2 &amp; -1 &amp; 1 &amp; -1\\
+1 &amp; 2 &amp; -1 &amp; 1\\
+3 &amp; -1 &amp; 2 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+B=
+\begin{bmatrix}
+10\\
+-1\\
+6\\
+11
+\end{bmatrix}
+\end{split}\]</div>
+<p>Tujuan:</p>
+<ol class="arabic simple">
+<li><p>Mencari invers matriks (A)</p></li>
+<li><p>Menentukan solusi sistem persamaan linear</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+AX=B
+\]</div>
+<p>dengan rumus</p>
+<div class="math notranslate nohighlight">
+\[
+X=A^{-1}B
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-1-rumus-invers">
+<h1>Langkah 1: Rumus Invers<a class="headerlink" href="#langkah-1-rumus-invers" title="Link to this heading">#</a></h1>
+<p>Jika</p>
+<div class="math notranslate nohighlight">
+\[
+\det(A)\neq 0
+\]</div>
+<p>maka invers matriks dapat dicari dengan:</p>
+<div class="math notranslate nohighlight">
+\[
+A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A)
+\]</div>
+<p>Namun untuk matriks orde 4, perhitungan adjoin sangat panjang. Oleh karena itu biasanya digunakan eliminasi Gauss-Jordan.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-2-menghitung-determinan">
+<h1>Langkah 2: Menghitung Determinan<a class="headerlink" href="#langkah-2-menghitung-determinan" title="Link to this heading">#</a></h1>
+<p>Lakukan operasi baris pada matriks (A):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A=
+\begin{bmatrix}
+1&amp;1&amp;1&amp;1\\
+2&amp;-1&amp;1&amp;-1\\
+1&amp;2&amp;-1&amp;1\\
+3&amp;-1&amp;2&amp;1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Eliminasi:</p>
+<div class="math notranslate nohighlight">
+\[
+R_2 \leftarrow R_2-2R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_3 \leftarrow R_3-R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_4 \leftarrow R_4-3R_1
+\]</div>
+<p>Diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;1&amp;1\\
+0&amp;-3&amp;-1&amp;-3\\
+0&amp;1&amp;-2&amp;0\\
+0&amp;-4&amp;-1&amp;-2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Ekspansi pada kolom pertama:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det(A)
+=
+\det
+\begin{bmatrix}
+-3&amp;-1&amp;-3\\
+1&amp;-2&amp;0\\
+-4&amp;-1&amp;-2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Hitung determinan (3\times3):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+=(-3)
+\begin{vmatrix}
+-2&amp;0\\
+-1&amp;-2
+\end{vmatrix}
+-
+(-1)
+\begin{vmatrix}
+1&amp;0\\
+-4&amp;-2
+\end{vmatrix}
++
+(-3)
+\begin{vmatrix}
+1&amp;-2\\
+-4&amp;-1
+\end{vmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+=(-3)(4)+(-2)+(-3)(-9)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=-12-2+27
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=13
+\]</div>
+<p>Jadi</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\det(A)=13}
+\]</div>
+<p>Karena determinan tidak nol, maka matriks (A) memiliki invers.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-3-mencari-invers-matriks-a">
+<h1>Langkah 3: Mencari Invers Matriks A<a class="headerlink" href="#langkah-3-mencari-invers-matriks-a" title="Link to this heading">#</a></h1>
+<p>Dengan metode Gauss-Jordan diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A^{-1}
+=
+\begin{bmatrix}
+-\frac{2}{13} &amp; \frac{1}{13} &amp; \frac{3}{13} &amp; \frac{1}{13}\\
+\frac{8}{13} &amp; -\frac{3}{13} &amp; -\frac{4}{13} &amp; -\frac{1}{13}\\
+\frac{10}{13} &amp; -\frac{2}{13} &amp; -\frac{8}{13} &amp; \frac{1}{13}\\
+-\frac{17}{13} &amp; \frac{4}{13} &amp; \frac{10}{13} &amp; \frac{1}{13}
+\end{bmatrix}
+\end{split}\]</div>
+<p>atau</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A^{-1}
+=
+\frac1{13}
+\begin{bmatrix}
+-2&amp;1&amp;3&amp;1\\
+8&amp;-3&amp;-4&amp;-1\\
+10&amp;-2&amp;-8&amp;1\\
+-17&amp;4&amp;10&amp;1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-4-menentukan-solusi-sistem">
+<h1>Langkah 4: Menentukan Solusi Sistem<a class="headerlink" href="#langkah-4-menentukan-solusi-sistem" title="Link to this heading">#</a></h1>
+<p>Gunakan</p>
+<div class="math notranslate nohighlight">
+\[
+X=A^{-1}B
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X=
+\frac1{13}
+\begin{bmatrix}
+-2&amp;1&amp;3&amp;1\\
+8&amp;-3&amp;-4&amp;-1\\
+10&amp;-2&amp;-8&amp;1\\
+-17&amp;4&amp;10&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+10\\
+-1\\
+6\\
+11
+\end{bmatrix}
+\end{split}\]</div>
+<p>Perkalian baris-kolom:</p>
+<section id="baris-1">
+<h2>Baris 1<a class="headerlink" href="#baris-1" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+-2(10)+1(-1)+3(6)+1(11)
+=8
+\]</div>
+</section>
+<section id="baris-2">
+<h2>Baris 2<a class="headerlink" href="#baris-2" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+8(10)-3(-1)-4(6)-1(11)
+=48
+\]</div>
+</section>
+<section id="baris-3">
+<h2>Baris 3<a class="headerlink" href="#baris-3" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+10(10)-2(-1)-8(6)+1(11)
+=65
+\]</div>
+</section>
+<section id="baris-4">
+<h2>Baris 4<a class="headerlink" href="#baris-4" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+-17(10)+4(-1)+10(6)+1(11)
+=-103
+\]</div>
+<p>Sehingga</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X
+=
+\frac1{13}
+\begin{bmatrix}
+8\\
+48\\
+65\\
+-103
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X=
+\begin{bmatrix}
+\frac{8}{13}\\
+\frac{48}{13}\\
+5\\
+-\frac{103}{13}
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Determinan matriks:</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\det(A)=13}
+\]</div>
+<p>Invers matriks:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+A^{-1}
+=
+\frac1{13}
+\begin{bmatrix}
+-2&amp;1&amp;3&amp;1\\
+8&amp;-3&amp;-4&amp;-1\\
+10&amp;-2&amp;-8&amp;1\\
+-17&amp;4&amp;10&amp;1
+\end{bmatrix}
+}
+\end{split}\]</div>
+<p>Solusi sistem persamaan linear:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boxed{
+X=
+\begin{bmatrix}
+\dfrac{8}{13}\\
+\dfrac{48}{13}\\
+5\\
+-\dfrac{103}{13}
+\end{bmatrix}
+}
+\end{split}\]</div>
+<p>dengan</p>
+<div class="math notranslate nohighlight">
+\[
+x_1=\frac{8}{13},\quad
+x_2=\frac{48}{13},\quad
+x_3=5,\quad
+x_4=-\frac{103}{13}
+\]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -539,13 +888,34 @@ Contoh:</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 1</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gaussian">Eliminasi Gaussian</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks">Matriks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmentasi">Matriks Augmentasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris">Bentuk Eselon Baris</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-eselon-baris-tereduksi-rref">Bentuk Eselon Baris Tereduksi (RREF)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Invers Matriks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-invers-matriks">Pengertian Invers Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-invers-matriks">Sifat-Sifat Invers Matriks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-dari-invers">1. Invers dari invers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-hasil-perkalian-matriks">2. Invers hasil perkalian matriks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-identitas">3. Invers matriks identitas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-transpose">4. Invers transpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-invers">5. Determinan invers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-mencari-invers-matriks">Metode Mencari Invers Matriks</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-dan-penyelesaian-sistem-persamaan-linear">Invers Matriks dan Penyelesaian Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diketahui">Diketahui</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-rumus-invers">Langkah 1: Rumus Invers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-determinan">Langkah 2: Menghitung Determinan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-mencari-invers-matriks-a">Langkah 3: Mencari Invers Matriks A</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-solusi-sistem">Langkah 4: Menentukan Solusi Sistem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-1">Baris 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-2">Baris 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-3">Baris 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baris-4">Baris 4</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
 
   </nav></div>

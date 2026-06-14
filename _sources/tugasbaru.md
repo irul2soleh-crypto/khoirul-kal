@@ -1,4 +1,5 @@
-# Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)
+# SVM
+## Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)
 
 ## Link Colab:
 https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing

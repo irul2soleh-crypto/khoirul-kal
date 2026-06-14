@@ -1,6 +1,6 @@
 #  Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)
 
-# Link Gogle Colab: https://colab.research.google.com/drive/1ybIvVPNGac31UIK8Mvpz7KhHX4ugH6_D?usp=sharing
+Link Gogle Colab: https://colab.research.google.com/drive/1ybIvVPNGac31UIK8Mvpz7KhHX4ugH6_D?usp=sharing
 
 Materi ini membahas proses mencari nilai eigen menggunakan metode dekomposisi QR dengan Gram-Schmidt secara bertahap hingga 10 iterasi QR.
 

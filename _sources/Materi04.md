@@ -1,7 +1,8 @@
-# Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)
+# Tugas Transformasi
+## Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)
 
 ## Link Colab:
-[collab](https://colab.research.google.com/drive/15IYkqrVJl10NM-WIa1m5rbDE_J8TQnuK?usp=sharing)
+https://colab.research.google.com/drive/15IYkqrVJl10NM-WIa1m5rbDE_J8TQnuK?usp=sharing
 
 ## 1. Titik Awal
 
