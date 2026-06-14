@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tugas Eigenface (PCA) &#8212; My sample book</title>
+    <title>Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9) &#8212; My sample book</title>
   
   
   
@@ -60,12 +60,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugasbaru';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Tranformasi" href="tranformasi.html" />
+    <link rel="prev" title="Tugas" href="tugas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -179,12 +177,19 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Materi02.html">Tugas ELiminasi  (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi03.html">Evaluasi Determinan Dan Invers (6)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi04.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi05.html">Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="materiterbaru.html">Materi 1</a></li>
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="tugas.html">Tugas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TugasKAL.html">tugas kal</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="tranformasi.html">Tranformasi</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Eigenface (PCA)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)</a></li>
 </ul>
 
     </div>
@@ -367,7 +372,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tugas Eigenface (PCA)</h1>
+    <h1>Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,22 +382,69 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-vektor-wajah">1. Representasi Vektor Wajah</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-wajah-mean-face">2. Menghitung Rata-Rata Wajah (Mean Face)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-selisih-wajah-phi">3. Normalisasi Selisih Wajah (<span class="math notranslate nohighlight">\(\Phi\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-matriks-kovarian-c">4. Pembentukan Matriks Kovarian (<span class="math notranslate nohighlight">\(C\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeksi-dan-perhitungan-bobot-wajah-training">5. Proyeksi dan Perhitungan Bobot Wajah Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengujian-wajah-baru-testing">6. Pengujian Wajah Baru (Testing)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-a-normalisasi-wajah-baru">Langkah A: Normalisasi Wajah Baru</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-b-proyeksi-ke-eigenspace">Langkah B: Proyeksi ke Eigenspace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-c-perhitungan-jarak-euclidean">Langkah C: Perhitungan Jarak Euclidean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-gambar-wajah-skala-piksel">7. Visualisasi Hasil Gambar Wajah (Skala Piksel)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wajah-training">Data Wajah Training</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wajah-rata-rata-fitur-eigenface">Wajah Rata-Rata &amp; Fitur Eigenface</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-uji-input-wajah-baru">Data Uji (Input Wajah Baru)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-geometri-eigenspace">Analisis Geometri Eigenspace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-colab">Link Colab:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-output-program">Hasil Output Program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-matriks-awal-gambar-a">1. Menentukan Matriks Awal Gambar A</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dilakukan-svd">2. Tujuan Dilakukan SVD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-komponen">Penjelasan Komponen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-matriks-aa">3. Mencari Matriks AAᵀ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-harus-menghitung-aa">Mengapa Harus Menghitung AAᵀ?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-eigenvalue-dan-eigenvector">4. Mencari Eigenvalue dan Eigenvector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-eigenvalue">Penjelasan Eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-eigenvector">Penjelasan Eigenvector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mendapatkan-singular-value">5. Mendapatkan Singular Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-singular-value">Penjelasan Singular Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-u">6. Membentuk Matriks U</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-matriks-u">Penjelasan Matriks U</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-matriks-a-a">7. Mencari Matriks AᵀA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-v">8. Membentuk Matriks Vᵀ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-matriks-v">Penjelasan Matriks Vᵀ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-sigma">9. Membentuk Matriks Sigma Σ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-sigma">Penjelasan Sigma</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekonstruksi-gambar">10. Rekonstruksi Gambar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-nilai-k">11. Penjelasan Nilai k</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-gambar-tetap-mirip-setelah-dikompresi">12. Mengapa Gambar Tetap Mirip Setelah Dikompresi?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-proses-svd-pada-program">13. Alur Lengkap Proses SVD pada Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3">STEP 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4">STEP 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5">STEP 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6">STEP 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9">STEP 9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10">STEP 10</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
             </nav>
         </div>
@@ -404,172 +456,648 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>Tugas KAL
-<a class="reference external" href="https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing">tugas</a>
-[tugas]<a class="github reference external" href="https://github.com/irul2soleh-crypto/khoirul-kal/blob/main/kal.ipynb">irul2soleh-crypto/khoirul-kal</a>
-<a class="reference external" href="https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing">tugass</a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="tugas-eigenface-pca">
-<h1>Tugas Eigenface (PCA)<a class="headerlink" href="#tugas-eigenface-pca" title="Link to this heading">#</a></h1>
-<section id="representasi-vektor-wajah">
-<h2>1. Representasi Vektor Wajah<a class="headerlink" href="#representasi-vektor-wajah" title="Link to this heading">#</a></h2>
-<p>Misalkan kita memiliki 3 buah data gambar wajah training yang disederhanakan menjadi vektor baris berukuran <span class="math notranslate nohighlight">\(1 \times 4\)</span> piksel:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\Gamma_1 &amp;= \begin{bmatrix} 2 &amp; 4 &amp; 4 &amp; 2 \end{bmatrix} \\
-\Gamma_2 &amp;= \begin{bmatrix} 4 &amp; 2 &amp; 2 &amp; 4 \end{bmatrix} \\
-\Gamma_3 &amp;= \begin{bmatrix} 3 &amp; 3 &amp; 3 &amp; 3 \end{bmatrix}
-\end{aligned}\end{split}\]</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="implementasi-singular-value-decomposition-svd-pada-kompresi-citra-9">
+<h1>Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)<a class="headerlink" href="#implementasi-singular-value-decomposition-svd-pada-kompresi-citra-9" title="Link to this heading">#</a></h1>
+<section id="link-colab">
+<h2>Link Colab:<a class="headerlink" href="#link-colab" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing">https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing</a></p>
 </section>
-<section id="menghitung-rata-rata-wajah-mean-face">
-<h2>2. Menghitung Rata-Rata Wajah (Mean Face)<a class="headerlink" href="#menghitung-rata-rata-wajah-mean-face" title="Link to this heading">#</a></h2>
-<p>Wajah rata-rata (<span class="math notranslate nohighlight">\(\Psi\)</span>) dihitung dengan menjumlahkan seluruh vektor wajah training lalu dibagi dengan jumlah total sampel (<span class="math notranslate nohighlight">\(M=3\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[\Psi = \frac{1}{3} \sum_{i=1}^{3} \Gamma_i\]</div>
-<div class="math notranslate nohighlight">
-\[\Psi = \frac{1}{3} \left( \begin{bmatrix} 2 &amp; 4 &amp; 4 &amp; 2 \end{bmatrix} + \begin{bmatrix} 4 &amp; 2 &amp; 2 &amp; 4 \end{bmatrix} + \begin{bmatrix} 3 &amp; 3 &amp; 3 &amp; 3 \end{bmatrix} \right)\]</div>
-<div class="math notranslate nohighlight">
-\[\Psi = \begin{bmatrix} 3 &amp; 3 &amp; 3 &amp; 3 \end{bmatrix}\]</div>
-</section>
-<section id="normalisasi-selisih-wajah-phi">
-<h2>3. Normalisasi Selisih Wajah (<span class="math notranslate nohighlight">\(\Phi\)</span>)<a class="headerlink" href="#normalisasi-selisih-wajah-phi" title="Link to this heading">#</a></h2>
-<p>Setiap vektor wajah dikurangi dengan vektor wajah rata-rata (<span class="math notranslate nohighlight">\(\Phi_i = \Gamma_i - \Psi\)</span>) untuk mendapatkan fitur unik:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\Phi_1 &amp;= \begin{bmatrix} 2-3 &amp; 4-3 &amp; 4-3 &amp; 2-3 \end{bmatrix} = \begin{bmatrix} -1 &amp; 1 &amp; 1 &amp; -1 \end{bmatrix} \\
-\Phi_2 &amp;= \begin{bmatrix} 4-3 &amp; 2-3 &amp; 2-3 &amp; 4-3 \end{bmatrix} = \begin{bmatrix} 1 &amp; -1 &amp; -1 &amp; 1 \end{bmatrix} \\
-\Phi_3 &amp;= \begin{bmatrix} 3-3 &amp; 3-3 &amp; 3-3 &amp; 3-3 \end{bmatrix} = \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}
-\end{aligned}\end{split}\]</div>
-<p>Matriks Deviasi Data (<span class="math notranslate nohighlight">\(A\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}A = \begin{bmatrix} \Phi_1 \\ \Phi_2 \\ \Phi_3 \end{bmatrix} = \begin{bmatrix} -1 &amp; 1 &amp; 1 &amp; -1 \\ 1 &amp; -1 &amp; -1 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\end{split}\]</div>
-</section>
-<section id="pembentukan-matriks-kovarian-c">
-<h2>4. Pembentukan Matriks Kovarian (<span class="math notranslate nohighlight">\(C\)</span>)<a class="headerlink" href="#pembentukan-matriks-kovarian-c" title="Link to this heading">#</a></h2>
-<p>Matriks Kovarian dihitung menggunakan perkalian matriks deviasi transpose dengan matriks deviasi itu sendiri (<span class="math notranslate nohighlight">\(C = A^T \cdot A\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}C = \begin{bmatrix} -1 &amp; 1 &amp; 0 \\ 1 &amp; -1 &amp; 0 \\ 1 &amp; -1 &amp; 0 \\ -1 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} -1 &amp; 1 &amp; 1 &amp; -1 \\ 1 &amp; -1 &amp; -1 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix} = \begin{bmatrix} 2 &amp; -2 &amp; -2 &amp; 2 \\ -2 &amp; 2 &amp; 2 &amp; -2 \\ -2 &amp; 2 &amp; 2 &amp; -2 \\ 2 &amp; -2 &amp; -2 &amp; 2 \end{bmatrix}\end{split}\]</div>
-<p>Dari matriks kovarian <span class="math notranslate nohighlight">\(C\)</span>, kita dapatkan Vektor Eigen Utama (<strong>Eigenface</strong>) setelah dinormalisasi:</p>
-<div class="math notranslate nohighlight">
-\[u_1 = \begin{bmatrix} 0.5 &amp; -0.5 &amp; -0.5 &amp; 0.5 \end{bmatrix}\]</div>
-</section>
-<section id="proyeksi-dan-perhitungan-bobot-wajah-training">
-<h2>5. Proyeksi dan Perhitungan Bobot Wajah Training<a class="headerlink" href="#proyeksi-dan-perhitungan-bobot-wajah-training" title="Link to this heading">#</a></h2>
-<p>Setiap wajah training diproyeksikan ke dalam ruang eigen dengan mengalikan vektor <span class="math notranslate nohighlight">\(\Phi_i\)</span> terhadap Transpose Eigenface (<span class="math notranslate nohighlight">\(W_i = \Phi_i \cdot u_1^T\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-W_1 &amp;= \begin{bmatrix} -1 &amp; 1 &amp; 1 &amp; -1 \end{bmatrix} \cdot \begin{bmatrix} 0.5 \\ -0.5 \\ -0.5 \\ 0.5 \end{bmatrix} = -2 \\
-W_2 &amp;= \begin{bmatrix} 1 &amp; -1 &amp; -1 &amp; 1 \end{bmatrix} \cdot \begin{bmatrix} 0.5 \\ -0.5 \\ -0.5 \\ 0.5 \end{bmatrix} = 2 \\
-W_3 &amp;= \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix} \cdot \begin{bmatrix} 0.5 \\ -0.5 \\ -0.5 \\ 0.5 \end{bmatrix} = 0
-\end{aligned}\end{split}\]</div>
-</section>
-<section id="pengujian-wajah-baru-testing">
-<h2>6. Pengujian Wajah Baru (Testing)<a class="headerlink" href="#pengujian-wajah-baru-testing" title="Link to this heading">#</a></h2>
-<p>Diberikan sebuah input vektor wajah baru yang ingin diidentifikasi:</p>
-<div class="math notranslate nohighlight">
-\[\Gamma_{\text{baru}} = \begin{bmatrix} 1 &amp; 5 &amp; 5 &amp; 1 \end{bmatrix}\]</div>
-<section id="langkah-a-normalisasi-wajah-baru">
-<h3>Langkah A: Normalisasi Wajah Baru<a class="headerlink" href="#langkah-a-normalisasi-wajah-baru" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\Phi_{\text{baru}} = \Gamma_{\text{baru}} - \Psi = \begin{bmatrix} 1-3 &amp; 5-3 &amp; 5-3 &amp; 1-3 \end{bmatrix} = \begin{bmatrix} -2 &amp; 2 &amp; 2 &amp; -2 \end{bmatrix}\]</div>
-</section>
-<section id="langkah-b-proyeksi-ke-eigenspace">
-<h3>Langkah B: Proyeksi ke Eigenspace<a class="headerlink" href="#langkah-b-proyeksi-ke-eigenspace" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}W_{\text{baru}} = \Phi_{\text{baru}} \cdot u_1^T = \begin{bmatrix} -2 &amp; 2 &amp; 2 &amp; -2 \end{bmatrix} \cdot \begin{bmatrix} 0.5 \\ -0.5 \\ -0.5 \\ 0.5 \end{bmatrix} = -4\end{split}\]</div>
-</section>
-<section id="langkah-c-perhitungan-jarak-euclidean">
-<h3>Langkah C: Perhitungan Jarak Euclidean<a class="headerlink" href="#langkah-c-perhitungan-jarak-euclidean" title="Link to this heading">#</a></h3>
-<p>Selisih bobot wajah baru dengan setiap wajah training:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-d(\text{baru}, \Gamma_1) &amp;= |W_{\text{baru}} - W_1| = |-4 - (-2)| = 2 \\
-d(\text{baru}, \Gamma_2) &amp;= |W_{\text{baru}} - W_2| = |-4 - 2| = 6 \\
-d(\text{baru}, \Gamma_3) &amp;= |W_{\text{baru}} - W_3| = |-4 - 0| = 4
-\end{aligned}\end{split}\]</div>
-</section>
-<section id="visualisasi-hasil-gambar-wajah-skala-piksel">
-<h3>7. Visualisasi Hasil Gambar Wajah (Skala Piksel)<a class="headerlink" href="#visualisasi-hasil-gambar-wajah-skala-piksel" title="Link to this heading">#</a></h3>
-<p>Berikut adalah representasi visual dari setiap wajah berdasarkan nilai intensitas pikselnya (semakin kecil nilainya semakin gelap, semakin besar nilainya semakin terang):</p>
-</section>
-<section id="data-wajah-training">
-<h3>Data Wajah Training<a class="headerlink" href="#data-wajah-training" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p>Wajah 1 (<span class="math notranslate nohighlight">\(\Gamma_1\)</span>)</p></th>
-<th class="head text-center"><p>Wajah 2 (<span class="math notranslate nohighlight">\(\Gamma_2\)</span>)</p></th>
-<th class="head text-center"><p>Wajah 3 (<span class="math notranslate nohighlight">\(\Gamma_3\)</span>)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p>⬛ ⬜<br>⬜ ⬛</p></td>
-<td class="text-center"><p>⬜ ⬛<br>⬛ ⬜</p></td>
-<td class="text-center"><p>⬜ ⬜<br>⬜ ⬜</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 2 &amp; 4 \\ 4 &amp; 2 \end{bmatrix}\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 4 &amp; 2 \\ 2 &amp; 4 \end{bmatrix}\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 3 &amp; 3 \\ 3 &amp; 3 \end{bmatrix}\)</span></p></td>
-</tr>
-</tbody>
-</table>
+<section id="hasil-output-program">
+<h2>Hasil Output Program<a class="headerlink" href="#hasil-output-program" title="Link to this heading">#</a></h2>
+<p>Pada program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">gambar_asli</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>diperoleh output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Ukuran Matriks U  : (168, 168)
+Ukuran Vektor S   : (168,)
+Ukuran Matriks Vt : (168, 300)
+</pre></div>
+</div>
+<p>Artinya sistem berhasil memecah gambar menjadi tiga komponen utama menggunakan metode Singular Value Decomposition (SVD).</p>
+<p>Tujuan utama SVD pada citra adalah:</p>
+<ul class="simple">
+<li><p>memisahkan pola penting gambar,</p></li>
+<li><p>mengurangi ukuran data,</p></li>
+<li><p>mempertahankan kualitas visual gambar.</p></li>
+</ul>
 </section>
 <hr class="docutils" />
-<section id="wajah-rata-rata-fitur-eigenface">
-<h3>Wajah Rata-Rata &amp; Fitur Eigenface<a class="headerlink" href="#wajah-rata-rata-fitur-eigenface" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p>Wajah Rata-Rata (<span class="math notranslate nohighlight">\(\Psi\)</span>)</p></th>
-<th class="head text-center"><p>Eigenface (<span class="math notranslate nohighlight">\(u_1\)</span>)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p>⬜ ⬜<br>⬜ ⬜</p></td>
-<td class="text-center"><p>🟥 🟦<br>🟦 🟥</p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 3 &amp; 3 \\ 3 &amp; 3 \end{bmatrix}\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 0.5 &amp; -0.5 \\ -0.5 &amp; 0.5 \end{bmatrix}\)</span></p></td>
-</tr>
-</tbody>
-</table>
+<section id="menentukan-matriks-awal-gambar-a">
+<h2>1. Menentukan Matriks Awal Gambar A<a class="headerlink" href="#menentukan-matriks-awal-gambar-a" title="Link to this heading">#</a></h2>
+<p>Saat gambar dibaca:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gambar</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">nama_file</span><span class="p">)</span>
+</pre></div>
 </div>
-<p><em>Catatan untuk Eigenface (<span class="math notranslate nohighlight">\(u_1\)</span>): Warna merah (🟥) merepresentasikan nilai positif dan warna biru (🟦) merepresentasikan nilai negatif sebagai komponen fitur pembeda utama.</em></p>
+<p>gambar masih berupa citra RGB.</p>
+<p>Kemudian gambar diubah ukurannya menjadi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gambar</span> <span class="o">=</span> <span class="n">gambar</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">168</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Artinya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Lebar  = 300 piksel
+Tinggi = 168 piksel
+</pre></div>
+</div>
+<p>Setelah itu dilakukan konversi grayscale:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gambar_gray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gambar</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="penjelasan">
+<h3>Penjelasan<a class="headerlink" href="#penjelasan" title="Link to this heading">#</a></h3>
+<p>Proses grayscale dilakukan agar:</p>
+<ul class="simple">
+<li><p>gambar hanya memiliki 1 kanal warna,</p></li>
+<li><p>perhitungan matematika menjadi lebih sederhana,</p></li>
+<li><p>proses SVD menjadi lebih cepat.</p></li>
+</ul>
+<p>Pada grayscale:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0   = hitam
+255 = putih
+</pre></div>
+</div>
+<p>Setelah proses ini, gambar berubah menjadi matriks numerik.</p>
+<p>Karena hasil ukuran gambar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>168 × 300
+</pre></div>
+</div>
+<p>maka matriks gambar:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A_{168 \times 300}
+</pre></div>
+</div>
+<p>Artinya:</p>
+<ul class="simple">
+<li><p>168 baris piksel</p></li>
+<li><p>300 kolom piksel</p></li>
+</ul>
+<p>Jumlah total piksel:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>168 \times 300 = 50400
+</pre></div>
+</div>
+<p>Jadi gambar direpresentasikan sebagai:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>50.400 nilai intensitas piksel grayscale
+</pre></div>
+</div>
+<p>Contoh sederhana matriks gambar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A =
+[120 130 140]
+[100 110 125]
+[ 90 100 105]
+</pre></div>
+</div>
+<p>Setiap angka menunjukkan tingkat terang suatu piksel.</p>
+</section>
 </section>
 <hr class="docutils" />
-<section id="data-uji-input-wajah-baru">
-<h3>Data Uji (Input Wajah Baru)<a class="headerlink" href="#data-uji-input-wajah-baru" title="Link to this heading">#</a></h3>
+<section id="tujuan-dilakukan-svd">
+<h2>2. Tujuan Dilakukan SVD<a class="headerlink" href="#tujuan-dilakukan-svd" title="Link to this heading">#</a></h2>
+<p>Metode SVD memecah matriks gambar:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A = U\Sigma V^T
+</pre></div>
+</div>
+<p>menjadi tiga bagian utama.</p>
+<section id="penjelasan-komponen">
+<h3>Penjelasan Komponen<a class="headerlink" href="#penjelasan-komponen" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>Wajah Baru (Input)</p></th>
-<th class="head text-center"><p>Hasil Identifikasi</p></th>
+<tr class="row-odd"><th class="head"><p>Matriks</p></th>
+<th class="head"><p>Fungsi</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-center"><p>⬛ ⬜<br>⬜ ⬛</p></td>
-<td class="text-center"><p><strong>Mirip Wajah 1</strong></p></td>
+<tr class="row-even"><td><p>U</p></td>
+<td><p>menyimpan pola vertikal gambar</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 5 \\ 5 &amp; 1 \end{bmatrix}\)</span></p></td>
-<td class="text-center"><p>Karena memiliki kemiripan pola gelap-terang yang sama secara diagonal.</p></td>
+<tr class="row-odd"><td><p>Σ</p></td>
+<td><p>menyimpan energi/informasi penting</p></td>
+</tr>
+<tr class="row-even"><td><p>Vᵀ</p></td>
+<td><p>menyimpan pola horizontal gambar</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>Secara sederhana:</p>
+<ul class="simple">
+<li><p>U = arah fitur gambar</p></li>
+<li><p>Σ = tingkat kepentingan fitur</p></li>
+<li><p>Vᵀ = kombinasi pola pembentuk gambar</p></li>
+</ul>
+<p>Dengan memecah gambar menjadi bagian-bagian ini, sistem dapat mengetahui:</p>
+<ul class="simple">
+<li><p>fitur penting,</p></li>
+<li><p>fitur kurang penting,</p></li>
+<li><p>bagian yang bisa dibuang saat kompresi.</p></li>
+</ul>
 </section>
-<section id="analisis-geometri-eigenspace">
-<h3>Analisis Geometri Eigenspace<a class="headerlink" href="#analisis-geometri-eigenspace" title="Link to this heading">#</a></h3>
-<p>Jika kita plot bobot (<em>weights</em>) setiap wajah ke dalam garis bilangan 1-Dimensi Eigenspace, posisinya adalah sebagai berikut:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  Wajah Baru          Wajah 1           Wajah 3           Wajah 2
-   ( W_new )          ( W_1 )           ( W_3 )           ( W_2 )
-       |                 |                 |                 |
-&lt;------|-----------------|-----------------|-----------------|------&gt;
-      -4                -2                 0                 2
-       \_______ ________/
-               V
-         Jarak Terdekat (d = 2)
-### Kesimpulan Akhir
-Berdasarkan nilai jarak terkecil ($d = 2$), sistem memutuskan bahwa input wajah baru memiliki kemiripan paling dekat dengan **Wajah Training 1 ($\Gamma_1$)**.
+</section>
+<hr class="docutils" />
+<section id="mencari-matriks-aa">
+<h2>3. Mencari Matriks AAᵀ<a class="headerlink" href="#mencari-matriks-aa" title="Link to this heading">#</a></h2>
+<p>Langkah pertama dalam proses SVD adalah menghitung:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>AA^T
+</pre></div>
+</div>
+<p>Pada program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AAT</span> <span class="o">=</span> <span class="n">gambar_asli</span> <span class="o">@</span> <span class="n">gambar_asli</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Penjelasan<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Transpose <code class="docutils literal notranslate"><span class="pre">(T)</span></code> berarti:</p>
+<ul class="simple">
+<li><p>baris menjadi kolom,</p></li>
+<li><p>kolom menjadi baris.</p></li>
+</ul>
+<p>Karena ukuran gambar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A = (168 × 300)
+</pre></div>
+</div>
+<p>maka:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>(168 \times 300)(300 \times 168) = 168 \times 168
+</pre></div>
+</div>
+<p>hasil:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AAᵀ = (168 × 168)
 </pre></div>
 </div>
 </section>
+<section id="mengapa-harus-menghitung-aa">
+<h3>Mengapa Harus Menghitung AAᵀ?<a class="headerlink" href="#mengapa-harus-menghitung-aa" title="Link to this heading">#</a></h3>
+<p>Karena:</p>
+<ul class="simple">
+<li><p>eigenvector dari AAᵀ digunakan membentuk matriks U,</p></li>
+<li><p>eigenvalue dari AAᵀ digunakan mencari singular value.</p></li>
+</ul>
+<p>AAᵀ dipakai untuk mengetahui:</p>
+<ul class="simple">
+<li><p>pola dominan,</p></li>
+<li><p>arah variasi terbesar,</p></li>
+<li><p>struktur utama gambar.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mencari-eigenvalue-dan-eigenvector">
+<h2>4. Mencari Eigenvalue dan Eigenvector<a class="headerlink" href="#mencari-eigenvalue-dan-eigenvector" title="Link to this heading">#</a></h2>
+<p>Setelah mendapatkan AAᵀ, langkah berikutnya adalah mencari:</p>
+<ul class="simple">
+<li><p>eigenvalue</p></li>
+<li><p>eigenvector</p></li>
+</ul>
+<p>Secara matematis:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>(AA^T)x = \lambda x
+</pre></div>
+</div>
+<p>dengan:</p>
+<ul class="simple">
+<li><p>λ = eigenvalue</p></li>
+<li><p>x = eigenvector</p></li>
+</ul>
+<p>Untuk mencari eigenvalue digunakan persamaan karakteristik:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\det(AA^T - \lambda I)=0
+</pre></div>
+</div>
+<p>Pada Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eigenvalue</span><span class="p">,</span> <span class="n">eigenvector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">AAT</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="penjelasan-eigenvalue">
+<h3>Penjelasan Eigenvalue<a class="headerlink" href="#penjelasan-eigenvalue" title="Link to this heading">#</a></h3>
+<p>Eigenvalue menunjukkan:</p>
+<ul class="simple">
+<li><p>seberapa besar pengaruh suatu fitur pada gambar.</p></li>
+</ul>
+<p>Nilai besar:</p>
+<ul class="simple">
+<li><p>fitur sangat penting.</p></li>
+</ul>
+<p>Nilai kecil:</p>
+<ul class="simple">
+<li><p>fitur kurang penting atau noise.</p></li>
+</ul>
+</section>
+<section id="penjelasan-eigenvector">
+<h3>Penjelasan Eigenvector<a class="headerlink" href="#penjelasan-eigenvector" title="Link to this heading">#</a></h3>
+<p>Eigenvector menunjukkan:</p>
+<ul class="simple">
+<li><p>arah pola utama pada gambar.</p></li>
+</ul>
+<p>Misalnya:</p>
+<ul class="simple">
+<li><p>pola wajah,</p></li>
+<li><p>pencahayaan,</p></li>
+<li><p>kontur objek,</p></li>
+<li><p>bentuk struktur gambar.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mendapatkan-singular-value">
+<h2>5. Mendapatkan Singular Value<a class="headerlink" href="#mendapatkan-singular-value" title="Link to this heading">#</a></h2>
+<p>Singular value diperoleh dari akar eigenvalue:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\sigma_i = \sqrt{\lambda_i}
+</pre></div>
+</div>
+<p>Pada program sebenarnya proses ini dihitung otomatis oleh:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Makanya muncul:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Ukuran Vektor S : (168,)
+</pre></div>
+</div>
+<p>Artinya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Terdapat 168 singular value
+</pre></div>
+</div>
+<section id="penjelasan-singular-value">
+<h3>Penjelasan Singular Value<a class="headerlink" href="#penjelasan-singular-value" title="Link to this heading">#</a></h3>
+<p>Singular value adalah:</p>
+<ul class="simple">
+<li><p>ukuran kekuatan informasi suatu komponen gambar.</p></li>
+</ul>
+<p>Nilai singular terbesar:</p>
+<ul class="simple">
+<li><p>menyimpan struktur utama gambar.</p></li>
+</ul>
+<p>Nilai singular kecil:</p>
+<ul class="simple">
+<li><p>biasanya hanya detail kecil atau noise.</p></li>
+</ul>
+<p>Karena itu:</p>
+<ul class="simple">
+<li><p>beberapa singular value pertama saja sudah cukup membentuk gambar.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="membentuk-matriks-u">
+<h2>6. Membentuk Matriks U<a class="headerlink" href="#membentuk-matriks-u" title="Link to this heading">#</a></h2>
+<p>Eigenvector dari:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>AA^T
+</pre></div>
+</div>
+<p>dikumpulkan menjadi:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>U = [u_1 \ u_2 \ u_3 \ ... \ u_{168}]
+</pre></div>
+</div>
+<p>Ukurannya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>U = (168 × 168)
+</pre></div>
+</div>
+<section id="penjelasan-matriks-u">
+<h3>Penjelasan Matriks U<a class="headerlink" href="#penjelasan-matriks-u" title="Link to this heading">#</a></h3>
+<p>Matriks U berisi:</p>
+<ul class="simple">
+<li><p>pola vertikal utama gambar.</p></li>
+</ul>
+<p>Setiap kolom U:</p>
+<ul class="simple">
+<li><p>mewakili satu arah fitur penting.</p></li>
+</ul>
+<p>Karena jumlah piksel vertikal = 168,
+maka jumlah vektor pada U juga 168.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mencari-matriks-a-a">
+<h2>7. Mencari Matriks AᵀA<a class="headerlink" href="#mencari-matriks-a-a" title="Link to this heading">#</a></h2>
+<p>Langkah berikutnya:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ATA</span> <span class="o">=</span> <span class="n">gambar_asli</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">gambar_asli</span>
+</pre></div>
+</div>
+<p>Secara matematis:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A^TA
+</pre></div>
+</div>
+<section id="id2">
+<h3>Penjelasan<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>AᵀA digunakan untuk:</p>
+<ul class="simple">
+<li><p>mencari pola horizontal gambar.</p></li>
+</ul>
+<p>Karena:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Aᵀ = (300 × 168)
+A  = (168 × 300)
+</pre></div>
+</div>
+<p>maka:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>(300 \times 168)(168 \times 300) = 300 \times 300
+</pre></div>
+</div>
+<p>hasil:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AᵀA = (300 × 300)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="membentuk-matriks-v">
+<h2>8. Membentuk Matriks Vᵀ<a class="headerlink" href="#membentuk-matriks-v" title="Link to this heading">#</a></h2>
+<p>Eigenvector dari:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A^TA
+</pre></div>
+</div>
+<p>membentuk matriks:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>V
+</pre></div>
+</div>
+<p>kemudian ditranspose menjadi:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>V^T
+</pre></div>
+</div>
+<p>Pada full SVD sebenarnya ukuran:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Vᵀ = (300 × 300)
+</pre></div>
+</div>
+<p>Namun karena program menggunakan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span>
+</pre></div>
+</div>
+<p>maka NumPy menggunakan thin SVD sehingga hanya singular vector penting yang disimpan.</p>
+<p>Karena:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\min(168,300)=168
+</pre></div>
+</div>
+<p>maka ukuran akhirnya menjadi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Vᵀ = (168 × 300)
+</pre></div>
+</div>
+<section id="penjelasan-matriks-v">
+<h3>Penjelasan Matriks Vᵀ<a class="headerlink" href="#penjelasan-matriks-v" title="Link to this heading">#</a></h3>
+<p>Vᵀ menyimpan:</p>
+<ul class="simple">
+<li><p>pola horizontal gambar.</p></li>
+</ul>
+<p>Jika U membaca pola vertikal,
+maka Vᵀ membaca:</p>
+<ul class="simple">
+<li><p>pola mendatar,</p></li>
+<li><p>struktur horizontal,</p></li>
+<li><p>kombinasi fitur antar kolom piksel.</p></li>
+</ul>
+<p>Tujuan thin SVD:</p>
+<ul class="simple">
+<li><p>komputasi lebih cepat,</p></li>
+<li><p>memori lebih hemat,</p></li>
+<li><p>hanya komponen penting yang disimpan.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="membentuk-matriks-sigma">
+<h2>9. Membentuk Matriks Sigma Σ<a class="headerlink" href="#membentuk-matriks-sigma" title="Link to this heading">#</a></h2>
+<p>Vector singular:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>S = [σ₁, σ₂, σ₃, ..., σ₁₆₈]
+</pre></div>
+</div>
+<p>diubah menjadi matriks diagonal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Menjadi:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\Sigma =
+\begin{bmatrix}
+\sigma_1 &amp; 0 &amp; 0 \\
+0 &amp; \sigma_2 &amp; 0 \\
+0 &amp; 0 &amp; \sigma_3
+\end{bmatrix}
+</pre></div>
+</div>
+<p><em>(contoh sederhana matriks diagonal)</em></p>
+<p>Ukuran sebenarnya:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Σ = (168 × 168)
+</pre></div>
+</div>
+<section id="penjelasan-sigma">
+<h3>Penjelasan Sigma<a class="headerlink" href="#penjelasan-sigma" title="Link to this heading">#</a></h3>
+<p>Sigma menunjukkan:</p>
+<ul class="simple">
+<li><p>tingkat kepentingan tiap fitur gambar.</p></li>
+</ul>
+<p>Semakin besar nilai sigma:</p>
+<ul class="simple">
+<li><p>semakin penting fitur tersebut.</p></li>
+</ul>
+<p>Karena hanya diagonal yang berisi angka:</p>
+<ul class="simple">
+<li><p>tiap fitur berdiri sendiri,</p></li>
+<li><p>tidak saling bercampur.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="rekonstruksi-gambar">
+<h2>10. Rekonstruksi Gambar<a class="headerlink" href="#rekonstruksi-gambar" title="Link to this heading">#</a></h2>
+<p>Pada dekomposisi penuh:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A = U\Sigma V^T
+</pre></div>
+</div>
+<p>Sedangkan pada proses kompresi digunakan:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A_k = U_k\Sigma_kV_k^T
+</pre></div>
+</div>
+<p>Pada program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gambar_rekonstruksi</span> <span class="o">=</span> <span class="n">U_k</span> <span class="o">@</span> <span class="n">S_k</span> <span class="o">@</span> <span class="n">Vt_k</span>
+</pre></div>
+</div>
+<section id="id3">
+<h3>Penjelasan<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Rekonstruksi berarti:</p>
+<ul class="simple">
+<li><p>membangun kembali gambar dari hasil SVD.</p></li>
+</ul>
+<p>Tetapi:</p>
+<ul class="simple">
+<li><p>tidak semua komponen dipakai,</p></li>
+<li><p>hanya komponen paling penting saja.</p></li>
+</ul>
+<p>Karena itu:</p>
+<ul class="simple">
+<li><p>ukuran data menjadi lebih kecil,</p></li>
+<li><p>gambar masih terlihat mirip dengan gambar asli.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="penjelasan-nilai-k">
+<h2>11. Penjelasan Nilai k<a class="headerlink" href="#penjelasan-nilai-k" title="Link to this heading">#</a></h2>
+<p>Pada program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pilihan_k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="id4">
+<h3>Penjelasan<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>k menunjukkan:</p>
+<ul class="simple">
+<li><p>jumlah singular value yang dipakai.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>k</p></th>
+<th class="head"><p>Makna</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>hanya fitur utama</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>detail mulai muncul</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>gambar mulai jelas</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>hampir menyerupai asli</p></td>
+</tr>
+<tr class="row-even"><td><p>90</p></td>
+<td><p>kualitas semakin mendekati gambar asli</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Semakin besar k:</p>
+<ul class="simple">
+<li><p>kualitas semakin baik,</p></li>
+<li><p>ukuran penyimpanan semakin besar.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="mengapa-gambar-tetap-mirip-setelah-dikompresi">
+<h2>12. Mengapa Gambar Tetap Mirip Setelah Dikompresi?<a class="headerlink" href="#mengapa-gambar-tetap-mirip-setelah-dikompresi" title="Link to this heading">#</a></h2>
+<p>Karena singular value terbesar menyimpan sebagian besar informasi gambar.</p>
+<p>Pada grafik:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>biasanya:</p>
+<ul class="simple">
+<li><p>nilai awal sangat besar,</p></li>
+<li><p>lalu turun drastis.</p></li>
+</ul>
+<p>Artinya:</p>
+<ul class="simple">
+<li><p>sebagian besar informasi penting hanya berada pada beberapa komponen awal.</p></li>
+</ul>
+<p>Komponen akhir:</p>
+<ul class="simple">
+<li><p>hanya detail kecil,</p></li>
+<li><p>bahkan sering berupa noise.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="alur-lengkap-proses-svd-pada-program">
+<h2>13. Alur Lengkap Proses SVD pada Program<a class="headerlink" href="#alur-lengkap-proses-svd-pada-program" title="Link to this heading">#</a></h2>
+<section id="step-1">
+<h3>STEP 1<a class="headerlink" href="#step-1" title="Link to this heading">#</a></h3>
+<p>Baca gambar grayscale:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A (168 × 300)
+</pre></div>
+</div>
+<p>↓</p>
+</section>
+<section id="step-2">
+<h3>STEP 2<a class="headerlink" href="#step-2" title="Link to this heading">#</a></h3>
+<p>Hitung:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>AA^T
+</pre></div>
+</div>
+<p>untuk mencari pola vertikal.</p>
+<p>↓</p>
+</section>
+<section id="step-3">
+<h3>STEP 3<a class="headerlink" href="#step-3" title="Link to this heading">#</a></h3>
+<p>Cari:</p>
+<ul class="simple">
+<li><p>eigenvalue</p></li>
+<li><p>eigenvector</p></li>
+</ul>
+<p>↓</p>
+</section>
+<section id="step-4">
+<h3>STEP 4<a class="headerlink" href="#step-4" title="Link to this heading">#</a></h3>
+<p>Bentuk:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>U (168 × 168)
+</pre></div>
+</div>
+<p>↓</p>
+</section>
+<section id="step-5">
+<h3>STEP 5<a class="headerlink" href="#step-5" title="Link to this heading">#</a></h3>
+<p>Hitung:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A^TA
+</pre></div>
+</div>
+<p>untuk mencari pola horizontal.</p>
+<p>↓</p>
+</section>
+<section id="step-6">
+<h3>STEP 6<a class="headerlink" href="#step-6" title="Link to this heading">#</a></h3>
+<p>Cari eigenvector.</p>
+<p>↓</p>
+</section>
+<section id="step-7">
+<h3>STEP 7<a class="headerlink" href="#step-7" title="Link to this heading">#</a></h3>
+<p>Bentuk:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Vᵀ (168 × 300)
+</pre></div>
+</div>
+<p>↓</p>
+</section>
+<section id="step-8">
+<h3>STEP 8<a class="headerlink" href="#step-8" title="Link to this heading">#</a></h3>
+<p>Hitung singular value:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>\sigma_i = \sqrt{\lambda_i}
+</pre></div>
+</div>
+<p>↓</p>
+</section>
+<section id="step-9">
+<h3>STEP 9<a class="headerlink" href="#step-9" title="Link to this heading">#</a></h3>
+<p>Bentuk:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Σ (168 × 168)
+</pre></div>
+</div>
+<p>↓</p>
+</section>
+<section id="step-10">
+<h3>STEP 10<a class="headerlink" href="#step-10" title="Link to this heading">#</a></h3>
+<p>Rekonstruksi:</p>
+<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>A_k = U_k\Sigma_kV_k^T
+</pre></div>
+</div>
+<p>untuk menghasilkan kembali gambar hasil kompresi.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Metode Singular Value Decomposition (SVD) dapat digunakan untuk melakukan kompresi citra dengan cara memecah gambar menjadi tiga komponen utama:</p>
+<ul class="simple">
+<li><p>matriks U,</p></li>
+<li><p>matriks Σ,</p></li>
+<li><p>matriks Vᵀ.</p></li>
+</ul>
+<p>Melalui proses ini, sistem dapat menyimpan hanya komponen paling penting dari gambar sehingga ukuran data menjadi lebih kecil tanpa menghilangkan bentuk utama citra secara signifikan.</p>
+<p>Semakin besar nilai (k) yang digunakan:</p>
+<ul class="simple">
+<li><p>kualitas gambar semakin baik,</p></li>
+<li><p>tetapi ukuran penyimpanan juga semakin besar.</p></li>
+</ul>
+<p>Sebaliknya, semakin kecil nilai (k):</p>
+<ul class="simple">
+<li><p>kompresi semakin tinggi,</p></li>
+<li><p>namun detail gambar semakin berkurang.</p></li>
+</ul>
+<p>Dengan demikian, SVD menjadi salah satu metode efektif dalam pengolahan citra digital untuk:</p>
+<ul class="simple">
+<li><p>kompresi gambar,</p></li>
+<li><p>reduksi dimensi,</p></li>
+<li><p>dan ekstraksi fitur penting dari citra.</p></li>
+</ul>
 </section>
 </section>
 
@@ -604,12 +1132,12 @@ Berdasarkan nilai jarak terkecil ($d = 2$), sistem memutuskan bahwa input wajah 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tranformasi.html"
+       href="tugas.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tranformasi</p>
+        <p class="prev-next-title">Tugas</p>
       </div>
     </a>
 </div>
@@ -630,22 +1158,69 @@ Berdasarkan nilai jarak terkecil ($d = 2$), sistem memutuskan bahwa input wajah 
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-vektor-wajah">1. Representasi Vektor Wajah</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-wajah-mean-face">2. Menghitung Rata-Rata Wajah (Mean Face)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-selisih-wajah-phi">3. Normalisasi Selisih Wajah (<span class="math notranslate nohighlight">\(\Phi\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-matriks-kovarian-c">4. Pembentukan Matriks Kovarian (<span class="math notranslate nohighlight">\(C\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeksi-dan-perhitungan-bobot-wajah-training">5. Proyeksi dan Perhitungan Bobot Wajah Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengujian-wajah-baru-testing">6. Pengujian Wajah Baru (Testing)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-a-normalisasi-wajah-baru">Langkah A: Normalisasi Wajah Baru</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-b-proyeksi-ke-eigenspace">Langkah B: Proyeksi ke Eigenspace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-c-perhitungan-jarak-euclidean">Langkah C: Perhitungan Jarak Euclidean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-gambar-wajah-skala-piksel">7. Visualisasi Hasil Gambar Wajah (Skala Piksel)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wajah-training">Data Wajah Training</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wajah-rata-rata-fitur-eigenface">Wajah Rata-Rata &amp; Fitur Eigenface</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-uji-input-wajah-baru">Data Uji (Input Wajah Baru)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-geometri-eigenspace">Analisis Geometri Eigenspace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-colab">Link Colab:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-output-program">Hasil Output Program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-matriks-awal-gambar-a">1. Menentukan Matriks Awal Gambar A</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dilakukan-svd">2. Tujuan Dilakukan SVD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-komponen">Penjelasan Komponen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-matriks-aa">3. Mencari Matriks AAᵀ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-harus-menghitung-aa">Mengapa Harus Menghitung AAᵀ?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-eigenvalue-dan-eigenvector">4. Mencari Eigenvalue dan Eigenvector</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-eigenvalue">Penjelasan Eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-eigenvector">Penjelasan Eigenvector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mendapatkan-singular-value">5. Mendapatkan Singular Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-singular-value">Penjelasan Singular Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-u">6. Membentuk Matriks U</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-matriks-u">Penjelasan Matriks U</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-matriks-a-a">7. Mencari Matriks AᵀA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-v">8. Membentuk Matriks Vᵀ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-matriks-v">Penjelasan Matriks Vᵀ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-sigma">9. Membentuk Matriks Sigma Σ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-sigma">Penjelasan Sigma</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekonstruksi-gambar">10. Rekonstruksi Gambar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-nilai-k">11. Penjelasan Nilai k</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengapa-gambar-tetap-mirip-setelah-dikompresi">12. Mengapa Gambar Tetap Mirip Setelah Dikompresi?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-proses-svd-pada-program">13. Alur Lengkap Proses SVD pada Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1">STEP 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2">STEP 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3">STEP 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4">STEP 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5">STEP 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6">STEP 6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7">STEP 7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8">STEP 8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9">STEP 9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10">STEP 10</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
   </nav></div>
 

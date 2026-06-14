@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7) &#8212; My sample book</title>
   
   
   
@@ -60,11 +60,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Materi04';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tugas" href="tugas.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="Materi03.html" />
+    <link rel="next" title="Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)" href="Materi05.html" />
+    <link rel="prev" title="Evaluasi Determinan Dan Invers (6)" href="Materi03.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -168,7 +170,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Materi01.html">Materi 1</a></li>
 
 
@@ -177,12 +179,20 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="Materi02.html">Tugas ELiminasi  (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi03.html">Evaluasi Determinan Dan Invers (6)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Materi05.html">Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="materiterbaru.html">Materi 1</a></li>
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="tugas.html">Tugas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TugasKAL.html">tugas kal</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="tranformasi.html">Tranformasi</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="tugasbaru.html">Tugas Eigenface (PCA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugasbaru.html">Implementasi Singular Value Decomposition (SVD) pada Kompresi Citra (9)</a></li>
 </ul>
 
     </div>
@@ -365,7 +375,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,9 +384,17 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-colab">Link Colab:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#titik-awal">1. Titik Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translasi-langkah-pertama">2. Translasi (Langkah Pertama)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">3. Refleksi terhadap Sumbu Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-gabungan">4. Transformasi Gabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-transformasi-akhir">5. Hasil Transformasi Akhir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-berulang-sesuai-loop-di-program">6. Proses Berulang (Sesuai Loop di Program)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-t-x-a-x">7. Hubungan dengan T(x) = A(x)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">8. Kesimpulan</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -387,7 +405,289 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-transformasi-sumbu-y-menggunakan-translasi-dan-pencerminan-7">
+<h1>Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan (7)<a class="headerlink" href="#tugas-transformasi-sumbu-y-menggunakan-translasi-dan-pencerminan-7" title="Link to this heading">#</a></h1>
+<section id="link-colab">
+<h2>Link Colab:<a class="headerlink" href="#link-colab" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/drive/15IYkqrVJl10NM-WIa1m5rbDE_J8TQnuK?usp=sharing">collab</a></p>
+</section>
+<section id="titik-awal">
+<h2>1. Titik Awal<a class="headerlink" href="#titik-awal" title="Link to this heading">#</a></h2>
+<p>Objek awal berupa persegi dengan titik:</p>
+<p>A(1,1)
+B(3,1)
+C(3,3)
+D(1,3)</p>
+<p>Dalam bentuk matriks (koordinat homogen):
+$<span class="math notranslate nohighlight">\(
+P =
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+\)</span>$</p>
+</section>
+<section id="translasi-langkah-pertama">
+<h2>2. Translasi (Langkah Pertama)<a class="headerlink" href="#translasi-langkah-pertama" title="Link to this heading">#</a></h2>
+<p>Pada program, setiap titik digeser ke kanan sejauh 1 satuan.</p>
+<p>Rumus:</p>
+<div class="math notranslate nohighlight">
+\[
+T(x,y) = (x+1, y)
+\]</div>
+<p>Matriks translasi:	​
+Matriks translasi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T =
+\begin{bmatrix}
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Transformasi:</p>
+<div class="math notranslate nohighlight">
+\[
+P' = T \cdot P
+\]</div>
+<p>dengan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P =
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[
+(x, y) \rightarrow (x+1, y)
+\]</div>
+<p>Contoh:</p>
+<div class="math notranslate nohighlight">
+\[
+A(1,1) \rightarrow (2,1)
+\]</div>
+<p>​
+​</p>
+<p>Contoh hasil translasi (Step 1):
+A(1,1) → A₁(2,1)
+B(3,1) → B₁(4,1)
+C(3,3) → C₁(4,3)
+D(1,3) → D₁(2,3)</p>
+</section>
+<section id="refleksi-terhadap-sumbu-y">
+<h2>3. Refleksi terhadap Sumbu Y<a class="headerlink" href="#refleksi-terhadap-sumbu-y" title="Link to this heading">#</a></h2>
+<p>Refleksi terhadap sumbu Y dapat ditulis dalam bentuk matriks:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R =
+\begin{bmatrix}
+-1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Sehingga transformasinya:</p>
+<div class="math notranslate nohighlight">
+\[
+P' = R \cdot P
+\]</div>
+<p>dengan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P =
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\end{split}\]</div>
+<p>Hasilnya:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+x' \\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+-x \\
+y
+\end{bmatrix}
+\end{split}\]</div>
+<p>Rumus:</p>
+<p>R(x,y)=(−x,y)</p>
+<p>Matriks refleksi terhadap sumbu Y:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R =
+\begin{bmatrix}
+-1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Transformasi:</p>
+<div class="math notranslate nohighlight">
+\[
+P' = R \cdot P
+\]</div>
+<p>dengan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P =
+\begin{bmatrix}
+x \\
+y \\
+1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[
+(x, y) \rightarrow (-x, y)
+\]</div>
+<p>Contoh hasil refleksi (dari Step 1):
+A₁(2,1) → A’(−2,1)
+B₁(4,1) → B’(−4,1)
+C₁(4,3) → C’(−4,3)
+D₁(2,3) → D’(−2,3)</p>
+</section>
+<section id="transformasi-gabungan">
+<h2>4. Transformasi Gabungan<a class="headerlink" href="#transformasi-gabungan" title="Link to this heading">#</a></h2>
+<p>UUrutan transformasi:
+Translasi kemudian refleksi</p>
+<p>Sehingga:</p>
+<div class="math notranslate nohighlight">
+\[
+P' = R \cdot T \cdot P
+\]</div>
+<p>Dengan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T =
+\begin{bmatrix}
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+,\quad
+R =
+\begin{bmatrix}
+-1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Matriks gabungan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R \cdot T =
+\begin{bmatrix}
+-1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="hasil-transformasi-akhir">
+<h2>5. Hasil Transformasi Akhir<a class="headerlink" href="#hasil-transformasi-akhir" title="Link to this heading">#</a></h2>
+<p>Hasil Transformasi Akhir:</p>
+<div class="math notranslate nohighlight">
+\[
+(x, y) \rightarrow (-(x+1), y)
+\]</div>
+</section>
+<section id="proses-berulang-sesuai-loop-di-program">
+<h2>6. Proses Berulang (Sesuai Loop di Program)<a class="headerlink" href="#proses-berulang-sesuai-loop-di-program" title="Link to this heading">#</a></h2>
+<p>Transformasi dilakukan sebanyak 6 langkah.</p>
+<p>Contoh beberapa step:</p>
+<p>Step 0 (awal):</p>
+<p>A(1,1)</p>
+<p>Step 1:</p>
+<p>Translasi → (2,1)
+Refleksi → (−2,1)</p>
+<p>Step 2:</p>
+<p>Translasi → (3,1)
+Refleksi → (−3,1)</p>
+<p>Step 3:</p>
+<p>Translasi → (4,1)
+Refleksi → (−4,1)</p>
+<p>dan seterusnya</p>
+<p>Pola transformasi:</p>
+<div class="math notranslate nohighlight">
+\[
+(x, y) \rightarrow (x+n, y) \rightarrow (-(x+n), y)
+\]</div>
+</section>
+<section id="hubungan-dengan-t-x-a-x">
+<h2>7. Hubungan dengan T(x) = A(x)<a class="headerlink" href="#hubungan-dengan-t-x-a-x" title="Link to this heading">#</a></h2>
+<p>Dalam konteks program:</p>
+<p>T(x) = hasil translasi
+A(x) = hasil akhir (setelah refleksi)</p>
+<p>Sehingga:</p>
+<div class="math notranslate nohighlight">
+\[
+A(x, y) = R(T(x, y))
+\]</div>
+</section>
+<section id="kesimpulan">
+<h2>8. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Titik A, B, C, D membentuk persegi
+Objek bergerak ke kanan setiap langkah
+Setiap hasil langsung dicerminkan ke sumbu Y
+Transformasi dilakukan secara bertahap (animasi)</p>
+<p>Transformasi akhir:</p>
+<p>Komposisi dalam bentuk matriks:
+Urutan transformasi:
+Translasi kemudian refleksi</p>
+<p>Sehingga:</p>
+<div class="math notranslate nohighlight">
+\[
+P' = R \cdot T \cdot P
+\]</div>
+<p>Dengan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T =
+\begin{bmatrix}
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+,\quad
+R =
+\begin{bmatrix}
+-1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Matriks gabungan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R \cdot T =
+\begin{bmatrix}
+-1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -424,15 +724,15 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Evaluasi Determinan Dan Invers (6)</p>
       </div>
     </a>
     <a class="right-next"
-       href="tugas.html"
+       href="Materi05.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas</p>
+        <p class="prev-next-title">Eigen Value dan Eigen Vektor dengan Dekomposi QR (8)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -453,9 +753,17 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-colab">Link Colab:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#titik-awal">1. Titik Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translasi-langkah-pertama">2. Translasi (Langkah Pertama)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">3. Refleksi terhadap Sumbu Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-gabungan">4. Transformasi Gabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-transformasi-akhir">5. Hasil Transformasi Akhir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-berulang-sesuai-loop-di-program">6. Proses Berulang (Sesuai Loop di Program)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hubungan-dengan-t-x-a-x">7. Hubungan dengan T(x) = A(x)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">8. Kesimpulan</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
