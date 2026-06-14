@@ -1,5 +1,9 @@
 Tugas KAL
 
+
+
+https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing
+
 # Tugas Eigenface (PCA)
 
 ## 1. Representasi Vektor Wajah
