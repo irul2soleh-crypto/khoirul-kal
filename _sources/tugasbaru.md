@@ -1,8 +1,8 @@
 Tugas KAL
+[tugas](https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing)
+[tugas]https://github.com/irul2soleh-crypto/khoirul-kal/blob/main/kal.ipynb
+[tugass](https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing)
 
-
-
-https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing
 
 # Tugas Eigenface (PCA)
 
@@ -123,8 +123,3 @@ Jika kita plot bobot (*weights*) setiap wajah ke dalam garis bilangan 1-Dimensi 
          Jarak Terdekat (d = 2)
 ### Kesimpulan Akhir
 Berdasarkan nilai jarak terkecil ($d = 2$), sistem memutuskan bahwa input wajah baru memiliki kemiripan paling dekat dengan **Wajah Training 1 ($\Gamma_1$)**.
-
-https://github.com/irul2soleh-crypto/khoirul-kal/blob/main/kal.ipynb
-
-
-https://colab.research.google.com/drive/1u99d2P9le_8ek_06VurWkYCNBUruZ92i?usp=sharing

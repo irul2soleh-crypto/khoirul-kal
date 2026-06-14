@@ -1,55 +1,127 @@
-1.Pengertian Persamaan Linear
-Sistem persamaan linear bisa diartikan sebagai suatu persamaan aljabar. Dimana persamaan linear sendiri memiliki karakteristik pada setiap sukunya mengandung konstanta atau perkalian konstanta dengan variabel tunggal. Persamaan tersebut disebut linear karena ada hubungan matematis yang digambarkan sebagai garis lurus dalam sistem koordinat Kartesius. Sistem koordinat tersebut akan menetapkan setiap titik secara unik dalam bidang dengan serangkaian koordinat numerik.
+# Tugas ELiminasi  (3)
 
-Sistem persamaan linear bisa diartikan sebagai suatu persamaan aljabar. Dimana persamaan linear sendiri memiliki karakteristik pada setiap sukunya mengandung konstanta atau perkalian konstanta dengan variabel tunggal.
+## 1. SPL (Sistem Persamaan Linear) 
 
-Persamaan tersebut disebut linear karena ada hubungan matematis yang digambarkan sebagai garis lurus dalam sistem koordinat Kartesius. Sistem koordinat tersebut akan menetapkan setiap titik secara unik dalam bidang dengan serangkaian koordinat numerik.
+$$\begin{cases}
+1x_1 + 0x_2 + 0x_3 + 0x_4 + 0x_5 = 1 \\
+2x_1 + 1x_2 + 0x_3 + 0x_4 + 0x_5 = 4 \\
+0x_1 + 3x_2 + 1x_3 + 0x_4 + 0x_5 = 9 \\
+0x_1 + 0x_2 + 4x_3 + 1x_4 + 0x_5 = 16 \\
+0x_1 + 0x_2 + 0x_3 + 5x_4 + 1x_5 = 25
+\end{cases}$$
 
-2.Ciri-Ciri Persamaan Linear
-Dalam persamaan linear memiliki ciri-ciri tertentu. Akan lebih mudah mengetahui ciri tersebut jika melihat langsung dari soal persamaan linear. Namun beberapa ciri yang ada di bawah ini juga akan memantu kalian lebih memahami persamaan linear.
+## 2. Matriks Augmented 
 
-Persamaan linear akan memiliki pangkat satu.
+$$\left[
+\begin{array}{ccccc|c}
+1 & 0 & 0 & 0 & 0 & 1 \\
+2 & 1 & 0 & 0 & 0 & 4 \\
+1 & 3 & 1 & 0 & 0 & 9 \\
+1 & 0 & 4 & 1 & 0 & 16 \\
+1 & 0 & 0 & 5 & 1 & 25
+\end{array}
+\right]$$
 
-Persamaan linear tidak memiliki perkalian variabel.
+## 3. Eliminasi Gauss (OBE) 
 
-Persamaan linear biasanya akan terdiri dari dua ruas yang akan dihubungkan dengan tanda sama dengan (=).
+### Langkah 1: nolkan elemen di bawah pivot kolom 1 
 
-Penjumlahan, pengurangan, perkalian dan pembagian pada kedua ruas persamaan linear tidak akan mengubah bentuk nilai persamaan.
+Operasi baris: $$R_2 \leftarrow R_2 - 2R_1$$
 
-3.Unsur Dalam Persamaan Linear
-Dalam proses penyelesaiannya, persamaan linear akan menggunakan rumus-rumus tertentu. Dalam rumus persamaan linear tersebut akan memiliki beberapa unsur penting. Pada penjelasan sebelumnya beberapa unsur dalam penyelesaian persamaan linear sudah dijelaskan secara singkat.
+Penjelasan:
 
-3.1.Variable
-Variabel dalam persamaan linear bisa diartikan sebagai penambah atau pengganti suatu bilangan yang pada dasarnya belum diketahui besaran nilai secara jelas. Variable sendiri kebanyak akan disimbolkan menggunakan huruf, misalnya seperti a, b, c, …, x, y, z.
+1.  Pivot pertama ada di kolom 1 baris 1 (angka 1).
 
-3.2.Koefisien
-Koefisien adalah suatu bilangan yang dapat menjelaskan banyaknya jumlah variabel sejenis. Keberadaan koefisien sendiri akan berada di depan variable. Sebagai contohnya adalah pada soal 2 pensil dan 4 spidol dapat dituliskan dalam persamaan seperti:
+2.  Di bawahnya (baris 2 kolom 1) ada angka 2.
 
-3.3.Konstanta
-Ada juga unsur konstanta dalam persamaan linear. Dimana konstanta adalah suatu nilai yang konstan yang tidak diikuti oleh variable pada bagian belakang. Sebagai contohnya adalah pada soal persamaan 2x + 5y + 7. Angka 7 pada soal persamaan tersebut adalah bentuk konstanta. Hal ini tak lain karena tidak ada variable apapun di bagian belakang angka 7.
+3.  Kita ingin membuat elemen tersebut menjadi 0.
 
-3.4.Suku
-Suku adalah bagian dari bentuk persamaan. Suku akan terdiri beberapa unsur penting persamaan linear, mulai dari koefisien, variable dan juga konstanta. Sebagai contohnya pada soal persamaan 7x-y+4. Suku dari soal persamaan tersebut adalah 6x, -y, 4.
+4.  Caranya dengan mengurangkan 2 kali baris 1 dari baris 2.
 
-##4.Jenis-Jenis Persamaan Linear Persamaan linear dibagi menjadi beberapa jenis. Dimana ada tiga jenis persamaan linear, mulai dari persamaan linear satu variabel, persamaan linear dua variabel dan persamaan linear tiga variabel. Namun jika ditulis dalam matematik, persamaan linier secara umum adalah y = mx + b.
+$$\left[
+\begin{array}{ccccc|c}
+1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & 2 \\
+1 & 3 & 1 & 0 & 0 & 9 \\
+1 & 0 & 4 & 1 & 0 & 16 \\
+1 & 0 & 0 & 5 & 1 & 25
+\end{array}
+\right]$$
 
-Setiap jenis persamaan linear memiliki pengertian dan cara penyelesaian yang berbeda-beda. Oleh karena itu, untuk bisa memahami apa itu persamaan linear, kita perlu tahu juga jenis-jenis persamaan linear.
+### Langkah 2: nolkan elemen di bawah pivot kolom 2 
 
-4.1.Persamaan Linear Satu Variabel
-Persamaan linear satu variabel adalah salah satu jenis persamaan linear. Seperti dengan namanya, persamaan linear satu variabel tersebut akan memiliki satu variabel dengan pangkat 1 dalam bentuk kalimat terbuka dan dapat dihubungkan dengan tanda =.
+Operasi baris: $$R_3 \leftarrow R_3 - 3R_2$$
 
-4.2.Persamaan Linear Dua Variabel
-Selanjutnya, ada persamaan linear dua variabel yang juga menjadi salah satu jenis persamaan linear. Persamaan linear dua variabel ini adalah sistem persamaan yang memiliki variabel berjumlah dua dengan pangkat 1. Persamaan linear dua variabel tersebut akan menggunakan relasi = dan tidak akan menggunakan perkalian variabel pada setiap persamaan.
+Penjelasan:
 
-Dalam kehidupan sehari-hari, jenis persamaan linear dua variabel ini kerap digunakan untuk menyelesaikan masalah sederhana lho, khususnya dalam kegiatan jual beli. Biasanya persamaan persamaan linear dua variabel tersebut akan digunakan untuk mencari keuntungan.
+1.  Pivot kedua ada di kolom 2 baris 2 (angka 1).
 
-4.3.Persamaan Linear Tiga Variabel
-Lalu masih ada persamaan persamaan linear tiga variabel yang juga merupakan jenis persamaan linear. Secara mudahnya persamaan linear tiga variabel ini adalah bentuk perluasan dari persamaan linier dua variabel.
+2.  Di bawahnya (baris 3 kolom 2) ada angka 3.
 
-Dimana untuk menyelesaikan persamaan linear tiga variabel ini bisa dilakukan dengan dua cara yaitu menggunakan metode subtitusi dan metode eliminasi. Sistem persamaan linear tiga variabel ini akan menentukan titik potong.
+3.  Kita membuat elemen tersebut menjadi 0 dengan mengurangkan 3 kali
+    baris 2.
 
-5.Metode Penyelesaian Persamaan Linear
-Pada bagian jenis persamaan linear ada beberapa metode yang bisa digunakan untuk menyelesaikan soal persamaan. Dimana metode-metode tersebut adalah seperti metode subtitusi dan metode persamaan.
+$$\left[
+\begin{array}{ccccc|c}
+1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & 2 \\
+1 & 0 & 1 & 0 & 0 & 3 \\
+1 & 0 & 4 & 1 & 0 & 16 \\
+1 & 0 & 0 & 5 & 1 & 25
+\end{array}
+\right]$$
 
-Setiap jenis metode penyelesaian persamaan linear memiliki pengertian dan cara yang berbeda-beda. Oleh karena itu, untuk memahami setiap jenis metode penyelesaian persamaan linear,maka penjelasan di bawah ini bisa membantu.
+### Langkah 3: nolkan elemen di bawah pivot kolom 3 
 
+Operasi baris: $$R_4 \leftarrow R_4 - 4R_3$$
+
+Penjelasan:
+
+1.  Pivot ketiga ada di kolom 3 baris 3 (angka 1).
+
+2.  Di bawahnya (baris 4 kolom 3) ada angka 4.
+
+3.  Elemen tersebut dinolkan dengan mengurangkan 4 kali baris 3.
+
+$$\left[
+\begin{array}{ccccc|c}
+1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & 2 \\
+1 & 0 & 1 & 0 & 0 & 3 \\
+1 & 0 & 0 & 1 & 0 & 4 \\
+1 & 0 & 0 & 5 & 1 & 25
+\end{array}
+\right]$$
+
+### Langkah 4: nolkan elemen di bawah pivot kolom 4 
+
+Operasi baris: $$R_5 \leftarrow R_5 - 5R_4$$
+
+Penjelasan:
+
+1.  Pivot keempat ada di kolom 4 baris 4 (angka 1).
+
+2.  Di bawahnya (baris 5 kolom 4) ada angka 5.
+
+3.  Elemen tersebut dibuat nol dengan mengurangkan 5 kali baris 4.
+
+$$\left[
+    \begin{array}{ccccc|c}
+    1 & 0 & 0 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 0 & 0 & 2 \\
+    1 & 0 & 1 & 0 & 0 & 3 \\
+    1 & 0 & 0 & 1 & 0 & 4 \\
+    1 & 0 & 0 & 0 & 1 & 5
+    \end{array}
+    \right]$$$$
+
+## Hasil Akhir 
+
+$$x_1 = 1,\quad x_2 = 2,\quad x_3 = 3,\quad x_4 = 4,\quad x_5 = 5$$
+
+
+## SAGE CELL
+
+![original image](https://cdn.mathpix.com/snip/images/aeU_3-oDook_mnKKIv2FYWNZY-_fwbTFVqVEcXw9jo4.original.fullsize.png)
+
+Kesimpulan: Eliminasi Gauss adalah metode efisien untuk menyelesaikan sistem persamaan linear (SPL) dengan mengubah matriks diperbesar menjadi bentuk eselon baris (segitiga atas) menggunakan operasi baris elementer. Proses ini diakhiri dengan substitusi balik untuk mendapatkan solusi, menjadikannya metode sistematis yang ampuh. 
